@@ -1,0 +1,97 @@
+@charset "UTF-8";
+footer ul .truc1 {
+  font-size: 30px;
+}
+footer ul .truc2 {
+  font-size: 40px;
+}
+footer ul .truc3 {
+  font-size: 50px;
+}
+footer ul .truc4 {
+  font-size: 60px;
+}
+footer ul .truc5, footer ul header {
+  font-size: 70px;
+}
+
+h1 {
+  color: red;
+}
+
+h2 {
+  color: grey;
+}
+
+footer {
+  background-color: aquamarine;
+}
+footer .menu {
+  background-color: crimson;
+}
+footer .menu li {
+  background-color: darkgoldenrod;
+}
+footer .menu li:hover {
+  background-color: deeppink;
+}
+
+/* Les variables ont une syntaxe plus simple et n'apparaîssent pas dans la compilation. */
+.truc5, header {
+  background-color: violet;
+}
+
+/* Extend permet de créer un morceau de CSS et le réutiliserà plusieurs endroits */
+main ul, header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  /* Je peux aussi l'utiliser avec le nom d'une classe afin d'appliquer le code appliqué à cette classe */
+}
+
+main ul {
+  flex-direction: column;
+}
+
+.copy {
+  font-size: 4rem;
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Une fonction scss permet de donner une valeur en entrée pour en récupérer une diférente en sortie, 
+par exemple ici on a une fonction qui retourne une couleur complémentaire et éclairci de la couleur donnée en argument */
+.copy {
+  color: mediumpurple;
+  background-color: #c2e084;
+}
+
+.copy {
+  width: 8rem;
+  height: 8rem;
+  /* @if permet d'indiquer des propriétés qui ne seront activées qu'à certaines conditions,
+  ici seulement si $w et $h sont égaux. */
+  border-radius: 50%;
+}
+
+.menu {
+  width: 300px;
+  height: 200px;
+  /* @if permet d'indiquer des propriétés qui ne seront activées qu'à certaines conditions,
+  ici seulement si $w et $h sont égaux. */
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */

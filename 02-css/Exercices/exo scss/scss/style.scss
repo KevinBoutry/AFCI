@@ -1,0 +1,44 @@
+@mixin colonnes($col) {
+
+    @for $i from 1 to $col+1{
+        .col-#{$i}{
+            width: $i*25%;
+        }
+    }
+}
+
+body{
+    @include colonnes(4)
+}
+
+// Création du mixin
+@mixin listWidth($prefix, $list){
+    @each $element in $list {
+      .#{$prefix}-#{$element} {
+        width: 50%;
+      }
+    }
+  }
+  // Test du mixin
+  $fruits: "banane", "cerise", "ananas", "pomme";
+  @include listWidth('fruit',$fruits);
+
+
+  @function first($tab){
+    @return nth($tab, 1);
+  }
+
+  .fruit::before{
+    content: first($fruits);
+  }
+
+  @function last($tab){
+    @return nth($tab, length($tab));
+  }
+
+  .fruit::before{
+    content: last($fruits);
+  } 
+
+  $villes: "Lyon", "Paris", "Marseille", "Rouen", "Bourg de Péage";
+  

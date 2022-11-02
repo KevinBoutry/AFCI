@@ -1,0 +1,38 @@
+body .col-1 {
+  width: 25%;
+}
+body .col-2 {
+  width: 50%;
+}
+body .col-3 {
+  width: 75%;
+}
+body .col-4 {
+  width: 100%;
+}
+
+.fruit-banane {
+  width: 50%;
+}
+
+.fruit-cerise {
+  width: 50%;
+}
+
+.fruit-ananas {
+  width: 50%;
+}
+
+.fruit-pomme {
+  width: 50%;
+}
+
+.fruit::before {
+  content: "banane";
+}
+
+.fruit::before {
+  content: "pomme";
+}
+
+/*# sourceMappingURL=style.css.map */

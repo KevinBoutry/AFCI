@@ -1,0 +1,56 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* La grid est un type de display */
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+main{
+    display: grid;
+    /* J'indique le nombre et la taille des colonnes, la fonction repeat() permet ded répéter plusieurs fois la même valeur */
+    grid-template-columns: repeat(5, 15%);
+    /* J'indique le nombre et la taille des lignes */
+    grid-template-rows: 20vh auto 200px 100px;
+    /* Prend l'espace restant dans le parent pour espacer les enfants */
+    justify-content: start;
+
+}
+
+main>div:nth-child(1){
+    background-color: aqua;
+    /* J'indique à quelle colonne et à quelle ligne ma case commencer et se termine.
+    Attention, les chiffres ne sont pas ceux des cases mais ceux des séparations. */
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+main>div:nth-child(2){
+    background-color: brown;
+    /* Les propriétés suivantes peuvent être résumé ainsi grid-column: start/end */
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+main>div:nth-child(3){
+    background-color: blueviolet;
+    /* grid-area : row start/column start/row end/column end */
+    grid-area: 1/5/4/6;
+}
+main>div:nth-child(4){
+    background-color: chartreuse;
+    /* En utilisant le mot clef span, on indique le nombre de cases qui doivent être prises plutot que la position de fin */
+    grid-row: 2/span 3;
+    grid-column: 1/span 2;
+}
+
+main>div:nth-child(5){
+    background-color: darkslategray ;
+    
+}

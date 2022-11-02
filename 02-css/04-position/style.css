@@ -1,0 +1,70 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 400vh;
+}
+
+header{
+    padding: 1rem;
+    background-color: chocolate;
+    color: antiquewhite;
+    text-align: center;
+    /* Le header reste tout le temps fixé en haut de l'écran */
+    position: fixed;
+    width: 100%;
+    /* Indique la position sur la profondeur de l'élément, par défaut tout élément est à 0 */
+    z-index: 1;
+    background-image: url(../ressources/images/image1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+nav, main{
+    margin-top: 50px;
+    display: inline-block;
+    height: 100%;
+    padding: 2rem;
+}
+
+nav{
+    width: 200px;
+    background-color: indianred;
+    /* Linear-gradient crée une image avec un dégradé de couleur */
+    background-image: linear-gradient(180deg, rgb(95, 6, 6) 0%, rgba(203,9,29,1) 44%, rgba(233,72,72,0.9556197478991597) 100%);
+}
+
+nav ul{
+    /* La position sticky garde l'élément dans le flux de la page, jusqu'à ce qu'il atteigne la position qui lui a été indiqué */
+    position: sticky;
+    top: 70px;
+}
+
+main{
+    /* calc permet de calculer une taille selon un calcul.
+    ! Attention à ne pas oublier les espaces */
+    width: calc(100% - 205px);
+    background-color: coral;
+    /* Garde l'élément dans le flux de la page, mais l'ajout des propriétés permet de le déplacer par rapport à sa position d'origine */
+    position: relative;
+    top: 100px;
+    right: 20px;
+
+}
+
+main p:last-child{
+    background-image: conic-gradient(green, red, pink);
+}
+
+button{
+    /* Sort l'élément du flux de la page */
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

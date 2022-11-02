@@ -1,0 +1,99 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sky{
+    height: 100%;
+    background: linear-gradient(to right, #904E95, #E96443);
+}
+
+.cloud{
+    position: absolute;
+    top:50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    /* Indique le nom de l'animation à lancer */
+    animation-name: cloud;
+    /* Indique la durée d'animation */
+    animation-duration: 10s;
+    /* Indique le sens dans lequel doit se jour l'animation */
+    animation-direction: normal;
+    /* Indique le rythme de l'animation */
+    animation-timing-function: ease-in-out;
+    /* Ajoute un délai avant que l'animation se lance */
+    animation-delay: 0.3s;
+    /* Nombre de fois ou l'animation doit se lancer */
+    animation-iteration-count:
+
+    /* Indique la position à laquelle doit se trouver l'élément à la fin de l'animation */
+    animation-fill-mode: forwards;
+}
+
+.cloud div{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    animation: darkCloud 5s linear infinite;
+}
+
+.part1{
+    top: -35%;
+}
+
+.part2{
+    left: 35%;
+}
+
+.part3{
+    left: -35%;
+}
+
+/* On peut définir une animation via la @rule "@keyframes" à laquelle on donne le nom souhaité*/
+@keyframes cloud{
+    /* On indique le point de départ de notre animation avec "from" ou "0%" */
+    from{
+        right: -30vw;
+        height: 5px;
+        width: 5px;
+    }
+    /* On indique autant d'étape clé supplémentaire que l'on veut en utilisant les pourcentages */
+    30%{
+        top:100vh
+    }
+    70%{
+        top: 100px;
+    }
+    75%{
+        width: 50px;
+        height: 50px;
+    }
+    /* On indique un point d'arrivé à notre animation avec "to" ou "100%" */
+    to{
+        right: 100vw;
+        height: 250px;
+        width: 250px;
+    }
+}
+
+@keyframes darkCloud{
+    0%{
+        background-color: grey;
+    }
+    50%{
+        background-color: white;
+    }
+    100%{
+        background-color: grey;
+    }
+}
+

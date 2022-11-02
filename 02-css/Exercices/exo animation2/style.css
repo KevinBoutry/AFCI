@@ -1,0 +1,54 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+div{
+    position: absolute ;
+    border-radius: 50%;
+    background-color: black;
+    animation-name: tourne;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite; 
+    border: 7px solid transparent;
+}
+
+#cercle1{    
+    top: 205px;
+    left: 205px;
+    border-top: 5px inset brown;
+    height: 180px;
+    width: 180px;
+    animation-delay: 0.2s;
+}
+
+#cercle2{
+    top: 215px;
+    left: 215px;
+    border-top : 5px inset red;
+    height: 160px;
+    width: 160px;
+    animation-delay: 0.4s;
+}
+
+#cercle3{
+    top: 225px;
+    left: 225px;
+    border-top: 5px inset pink;
+    height: 140px;
+    width: 140px;
+}
+
+@keyframes tourne{
+    from{
+        rotate: 0;
+    }
+    to{
+        rotate: 360deg;
+}
+}

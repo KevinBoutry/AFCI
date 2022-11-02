@@ -1,0 +1,535 @@
+
+@font-face{
+    font-family:"Catamaran";
+    src: url(./assets/font/Catamaran/Catamaran-VariableFont_wght.ttf);
+}
+
+@font-face{
+    font-family: "Hotel";
+    src: url(./assets/font/Grand_Hotel/GrandHotel-Regular.ttf);
+}
+
+:root{
+    --mainFont: Catamaran, monospace;
+}
+
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./assets/image/main-bcg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 600px;    
+    width: 100%;
+    border-bottom: 10px solid rgb(97, 141, 21);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+    overflow-x: hidden;
+
+}
+
+h1{
+    font-family: var(--mainFont);
+    letter-spacing: 5px;
+    font-weight: bolder
+}
+
+h2{
+    color: rgb(97, 141, 21) ;
+    font-family: "Hotel";
+    font-size: 2.5rem;
+}
+
+h3{
+    font-family: var(--mainFont);
+    font-size: 1rem;
+    letter-spacing: 5px;
+}
+
+article{
+    color: grey;
+}
+
+header>h2{
+    animation: title2 8s;
+    position: relative;
+}
+
+header>span{
+    color: white;
+    font-family: var(--mainFont);    
+    font-size: 4rem;
+    font-weight: 1000;
+    text-align: center;
+    letter-spacing: 5px;
+    animation: title 8s;
+    position: relative;
+}
+
+header>button{
+    width: 150px;
+    height: 50px;
+    color: white;
+    background-color: rgb(97, 141, 21) ;
+    outline:0.125rem solid rgb(97, 141, 21) ;
+    outline-offset: 0.25rem;
+    animation: title2 8s
+}
+
+/* --------------------------------------Partie MENU------------------------------------- */
+
+nav>div{
+    font-family: var(--mainFont);
+    width:200px;
+    z-index: 2;
+    position: fixed;
+    background-color: rgb(216, 199, 199);
+    height: 100vh;
+    transform: translateX(-300px);
+    transition-property: transform;
+    transition-duration: 0.5s;
+}
+
+nav>label{
+    position:fixed;
+    z-index: 1;
+    color: rgb(97, 141, 21);
+    font-size: 2.5rem;
+    animation: pulse 1s infinite alternate;
+}
+
+nav>div>label{
+    color: red;
+    font-size: 2em;
+    position: relative;
+    left: 175px;
+}
+
+input#burger{
+    display: none;
+}
+
+input#burger:checked ~div{
+    transform: translateX(0px);  
+}
+
+input#close{
+    display: none;
+}
+
+input#close:checked #menu{
+    transform: translateX(-300px);
+}
+
+/* --------------------------------------Partie HAUT------------------------------------- */
+
+#haut{
+    height :250px;
+    display: grid;
+    grid-template-areas: "a b c d";
+    grid-template-columns: repeat(4, 20%);
+    justify-content: space-evenly;
+}
+
+#haut>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#haut>div:nth-of-type(1){
+    grid-area: a;
+}
+
+#haut>div:nth-of-type(2){
+    grid-area: b;
+}
+
+#haut>div:nth-of-type(3){
+    grid-area: c;
+}
+
+#haut>div:nth-of-type(4){
+    grid-area: d;
+}
+
+#haut>div>svg{
+    fill: rgb(97, 141, 21);
+    height: 30px;
+}
+
+#haut>div:hover{
+    border-bottom: 5px solid rgb(97, 141, 21);
+    background-color: rgb(228, 224, 224);
+    transform: translate(5px);
+}
+
+#haut>div:hover svg{
+    transform: translateY(-10px);
+}
+
+/* --------------------------------------Partie TEA------------------------------------- */
+
+#tea{
+    height: 450px;
+    display: grid;
+    grid-template-areas:
+    "a b"
+    "a c"
+    "a d"
+    "a e";
+    grid-template-columns: 45% 40%;
+    padding: 50px;
+    
+}
+   
+#tea>div{
+    background-image: url(./assets/image/about-bcg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    grid-area: a;
+    border: 5px solid rgb(97, 141, 21);
+    transition: transform .1s;
+    margin-right: 30px;
+}
+
+#tea>div:hover{
+    box-shadow: inset 0 0 0 1000px rgba(97,141,21,.4);
+    transform: scale(1.5);
+}
+
+#tea>h2{
+    grid-area: b;       
+}
+
+#tea>h1{
+    grid-area: c;
+    font-family: var(--mainFont);
+}
+
+#tea>article{
+    grid-area: d;
+}
+
+#tea>button{
+    grid-area: e;
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: rgb(97, 141, 21);
+}
+
+/* --------------------------------------Partie PRODUCTS------------------------------------- */
+
+#products{
+    display: grid;
+    grid-template-areas:
+    "a e"
+    "b e"
+    "c e"
+    "d e";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 15% 20% 25% 40%; 
+    height: 450px;
+    padding: 50px;
+}
+
+#products>h2{
+    grid-area: a;
+}
+
+#products>h1{
+    grid-area: b;
+}
+
+#products>article{
+    grid-area: c;
+}
+
+#products>button{
+    grid-area: d;
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: rgb(97, 141, 21);
+    margin-top: 30px;
+}
+
+#products>div{
+    grid-area: e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#products>div>div{
+    display: flex;
+    flex-direction: column;
+}
+
+.tag{
+    font-family: var(--mainFont);
+}
+
+.price{
+    font-family: var(--mainFont);
+    color: rgb(97, 141, 21);
+}
+
+.illu{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 250px;
+    border-radius: 10%;
+}
+
+#illu1{
+    background-image: url(./assets/image/product-1.jpeg);    
+}
+
+#illu2{
+    background-image: url(./assets/image/product-2.jpeg);
+}
+
+#illu3{
+    background-image: url(./assets/image/product-3.jpeg);
+}
+
+/* --------------------------------------Partie EXPLORE------------------------------------- */
+
+#explore{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* --------------------------------------Partie BAS------------------------------------- */
+
+#bas{
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#bas>div>svg{
+    fill: rgb(97, 141, 21);
+    height: 50px;
+    background-color: rgb(207, 248, 144);
+    border-radius: 50%;
+    border: 5px solid white;
+    transform: translateY(-25px);
+}
+
+#illu4{
+    background-image: url(./assets/image/product-1.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 300px;
+    border-radius: 5%;
+}
+
+#illu5{
+    background-image: url(./assets/image/product-2.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 300px;
+    border-radius: 5%;
+}
+
+#illu6{
+    background-image: url(./assets/image/product-3.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 300px;
+    border-radius: 5%;
+}
+
+#bas>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bas>div>article{
+    width: 300px;
+}
+
+#bas>div>span{
+    font-family: var(--mainFont);
+    
+}
+
+#bas>div>button{
+    color: white;
+    background-color: rgb(97, 141, 21) ;
+    height: 40px;
+    width: 130px;
+    border-radius: 15%;
+}
+
+/* --------------------------------------Partie Contact------------------------------------- */
+#contact{
+    padding: 50px;    
+}
+
+#contact>div{
+    display: inline-block;
+}
+
+#contact>div>div:nth-of-type(1){
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 550px;
+}
+
+#contact>div>div>div>span:nth-of-type(1){
+    color: rgb(97, 141, 21);
+    font-family: var(--mainFont);
+}
+
+#contact>div>div>div>span:nth-of-type(2){
+    font-family: var(--mainFont);
+    font-weight: bold;
+}
+
+#contitle{
+    font-family: var(--mainFont);
+    font-size: 4rem;
+    color: grey;
+    text-align: center;
+}
+
+#contact>div>div:nth-of-type(2){
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+label{
+    font-family: var(--mainFont);
+    color: grey;
+    letter-spacing: 200%;
+}
+
+#contact>div>div>button{
+    background-color:rgb(97, 141, 21);
+    color: white;
+    height: 30px;
+}
+
+button{
+    border: none;
+    letter-spacing: 5px;
+}
+
+button:hover{
+    background-color: greenyellow !important;
+    color: rgb(97, 141, 21) !important;
+}
+/* -----------------------------ANIMATION--------------------------------------- */
+
+@keyframes title{
+    from{
+        left: -80vw;
+        opacity: 0;
+    }
+    to{
+      left: 0vw;
+      opacity: 1;
+    }
+}
+
+
+@keyframes title2{
+    from{
+        right: -80vw;
+        opacity: 0;
+    }
+    to{
+      right: 0vw;
+      opacity: 1;
+    }
+}
+
+@keyframes pulse{
+    from{
+        scale: 1;
+    }
+    to{
+        scale: 1.2;
+    }
+}
+
+/* ------------------------------------------RESPONSIVE-------------------------------------- */
+
+@media screen and (max-width: 900px) {
+    #haut{
+        grid-template-areas: "a b" "c d";
+        grid-template-columns: repeat(2, 40%);
+    }
+    #tea{
+        grid-template-areas: "a" "b" "c" "d" "e";
+        grid-template-columns: 80%;
+    }
+    #tea>div{
+        height: 300px;
+    }
+    #products{
+        padding-top: 150px;
+        grid-template-areas:"a" "b" "c" "d" "e";
+        grid-template-columns: 1fr 
+    }
+    #explore{
+        margin-top: 600px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #haut{
+        grid-template-areas: "a" "b" "c" "d";
+        /* grid-template-columns: repeat(2, 40%); */
+    }
+    #tea{
+        grid-template-areas: "a" "b" "c" "d" "e";
+        grid-template-columns: 80%;
+    }
+    #tea>div{
+        height: 300px;
+    }
+    #products{
+        padding-top: 150px;
+        grid-template-areas:"a" "b" "c" "d" "e";
+        grid-template-columns: 1fr 
+    }
+    #explore{
+        margin-top: 600px;
+    }
+}

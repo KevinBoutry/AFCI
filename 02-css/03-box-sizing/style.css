@@ -1,0 +1,79 @@
+*, ::before, ::after{
+    /* On place toutes les marges et le padding à 0 pour ne pas avoir celles par défaut */  
+    margin: 0;
+    padding: 0;
+    /* On indique que la taille de nos élément doit prendre en compte la bordure */
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #7ed0df;
+    /* Mettre une image en fond */
+    background-image: url(../ressources/images/paysage.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+main{
+    background-color: coral;
+}
+
+article{
+    /*modifie la largeur d'un élément */
+    width: 49%;
+    /* Change la fonction d'afficher un élément */
+    display: inline-block;
+    /* Crée une bordure autour de l'élément */
+    border: 2px inset black;
+    /* Ajoute une marge interne au block */
+    padding: 20px;
+    /* Ajoute une marge externe au block */
+    margin: 20px auto 10px 5px;
+}
+
+h1{
+    font-size: 42px;
+    text-align: center;
+    padding: 0.8em 0;
+    color: aliceblue;
+}
+
+p{
+    font-size: 24px;
+    text-align: justify;
+}
+
+p::first-letter{
+    font-size: 1.5em;
+}
+
+footer{
+    background-color: darkolivegreen;
+    min-height: 50px;
+}
+
+li{
+    display : inline-block;
+    background-color: cornflowerblue;
+    /* Permet de modifier la taille d'un élément en fonction d'une de ces 2 tailles (hauter ou largeur) */
+    aspect-ratio: 1/1;
+    /* Arrondi les angles */
+    border-radius: 50%;
+    padding: 1rem 5px;
+    margin-left: 15%;
+    /* supprime ou modifie les puces de la liste */
+    list-style: none;
+}
+
+div{
+    width: 40vw;
+    max-height: 90vh;
+    margin: 5px auto;
+}
+
+img{
+    max-width: 90%;
+    /* Permet d'adapter la taille de l'image à son parent */
+    object-fit: cover;
+}

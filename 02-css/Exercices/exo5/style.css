@@ -1,0 +1,76 @@
+*, ::before, ::after{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+
+    height: 40px;
+    width: 150px;
+    font-size: 1.2rem
+}
+
+#exo1{
+    position: absolute;
+    top : 25%;
+    left : 25%;
+    transform: translate(-50%, -50%);
+    transition-property: color, border, background-color, transform;
+    transition-duration: 1s, 1s, 1s, 2s;
+    transform: rotateY(0);
+    }
+
+#exo2{
+    position: absolute;
+    top : 75%;
+    left : 25%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    background-color: red;
+    color: antiquewhite;
+    border: none;
+    }
+
+#exo3{
+
+    position: absolute;
+    top : 25%;
+    left : 75%;
+    transform: translate(-50%, -50%);
+    transition-property: color, border, background-color, transform;
+    transition-duration: 1s, 1s, 1s, 5s;
+    background-color: red;
+    color: antiquewhite;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #656565;
+    bo
+
+}
+    
+#exo4{
+    position: absolute;
+    top : 75%;
+    left : 75%;
+    transform: translate(-50%, -50%);
+    transition-property: color, border, background-color, transform;
+    transition-duration: 1s, 1s, 1s, 5s;
+    }    
+
+button:hover{
+    cursor: pointer ;
+}
+
+#exo1:hover{   
+    color: red;
+    border: 2px inset red;
+    background-color: rgba(255, 0, 0, 0.2);
+    transform: rotateY(360deg);
+    transition-property: border-color, color, background-color;
+    ;
+}
+
+#exo2:hover{       
+    border: 6px inset rgb(255, 255, 255);
+}

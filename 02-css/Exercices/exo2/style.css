@@ -1,0 +1,59 @@
+body{
+    height: 100vh;
+    margin: 0;
+    display: flex; 
+    flex-flow: column wrap;
+
+}
+
+div{
+       height: 100%;
+    }
+
+#bleu{
+    background-color: blue;
+}
+
+#rouge{
+    background-color: red;
+}
+
+#jaune{
+    background-color: yellow;
+}
+
+#violet{
+    background-color: purple;
+}
+
+#vert{
+    background-color: green;
+}
+
+#rose{
+    background-color: pink;
+}
+
+#marron{
+    background-color: brown;
+}
+
+#noir{
+    background-color: black;
+}
+
+@media screen and (max-width:1000px){
+    div{
+        
+        width: 25%; 
+        height: 50%;           
+    }
+}
+
+@media screen and (max-width:600px){
+    div{
+        
+        width: 50%;
+        height: 25%;          
+    }
+}

@@ -1,0 +1,61 @@
+/* Importer une police d'écriture */
+@font-face{
+    font-family:"BlakaHollow";
+    src: url("./BlakaHollow-Regular.ttf");
+}
+
+/* L'élément root est la racine du document, utilisé pour y placer les variables CSS */
+:root{
+    --mainBgColor:#f3ca71;
+    --maintTextColor:#050a49;
+    --divTextSize:0.8rem;
+    --mainFont: BlakaHollow, monospace;
+}
+
+body{
+    background-color: aquamarine;
+}
+
+.target1{
+    background-color: var(--mainBgColor);
+    color: var(--maintTextColor);
+    font-size: var(--divTextSize);
+    font-family: var(--mainFont);
+}
+
+.target2{
+    background-color: rgb(0, 100, 100);
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+}
+
+.target3{
+    background-color: rgba(121, 0, 12, 0.5);
+    font-size: 2cm;
+}
+
+.target4{
+    background-color: hsl(270, 80% , 50%);
+}
+
+.target5{
+    background-color: hsla(160, 20%, 40%, 0.6);
+    font-size: 6vh;
+}
+
+.target6{
+    font-size: 5vw;
+}
+
+.target7{
+    font-size: 10vmin;
+}
+
+.target8{
+    font-size: 5vmax;4
+}
+
+.target9{
+    /* clamp = taille variable avec un min et un max */
+    font-size: clamp(20px, 10vh, 60px);
+}

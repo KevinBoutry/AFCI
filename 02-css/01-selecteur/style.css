@@ -1,0 +1,128 @@
+/*
+    Pour sélecectionner un élément et le modifier, on utilise la syntaxe qui suit :
+    selecteur {propriete:valeur;}
+*/
+
+main, header{
+    background-color: chocolate;
+}
+footer{
+    /* !important rend prioritaire sur tout le reste */
+    background-color: blueviolet !important;
+}
+
+/* --------------- Enfant direct ou indirect -----------------*/
+
+/* Selectionne tous les p dans main (indirect) */
+main p{
+    background-color: crimson;
+}
+/* Selectionne uniquement les p directement sous main (direct) */
+main>p{
+    background-color: hotpink;
+}
+
+/* --------------- Frère direct ou indirect -----------------*/
+
+ /* Tous les li qui suivent un h3 */
+h3 ~ li{
+    background-color: chartreuse;
+}
+/* Le premier li suivant un h3 */
+h3 + li{
+    background-color: darkolivegreen;
+}
+
+/* --------------- Pseudo-classes -----------------*/
+
+/* Les pseudos classes sont écrites de la façon suivante ":pseudo-classe" */
+
+/* Applique l'élément au survol de la souris */
+li:hover{
+    background-color: darkred;
+}
+/* Sélectionne le 3eme li qu'il a trouvé */
+li:nth-of-type(3){
+    background-color: indigo;
+}
+/* Sélectionne le 2eme enfant si c'est un li */
+li:nth-child(2){
+    background-color: lightcoral;
+}
+/* Pour modifier un lien il faut le cibler directement et non pas son parent*/
+h1 a{
+    color: antiquewhite;
+}
+/* S'active lorqu'on clique sur le lien */
+h1 a:active{
+    color: aquamarine;
+}
+/* S'active quand le focus est sur l'élément */
+h1 a:focus{
+    color: black;
+}
+/* Selectionne tous les span dans un p sauf le 2nd */
+p span:not(:nth-of-type(2)){
+    color: darkred;
+}
+*:not(h1, a){
+    font-size: 30px
+}
+
+/* --------------- Pseudo Element -----------------*/
+
+/* Les pseudos éléments s'écrivent telle que ::pseudo-element */
+
+/* Selectionne la 1ere lettre de l'element */
+article p::first-letter{
+    font-size: 50px;
+}
+
+/* Selectionne la 1ere ligne de l'element */
+main > p::first-line{
+    font-weight: 900;
+}
+
+/* Insere un element avant ou après la sélection */
+h1::before{
+    content: "C'est faux ->";
+}
+h1::after{
+    content: "~~~~~~~~";
+}
+/* before et after doivent contenir la propriété "content" */
+
+
+/* --------------- Classes, ID et Attributs -----------------*/
+
+/* Sélectionne un élément via son ID */
+#MenuImportant{
+    font-size: 60px;
+    font-weight: 600;
+    color: darkblue;
+}
+
+/* Sélectionne un élément via sa classe */
+.PeuImportant{
+    font-size: 20px;
+    color: darkmagenta;
+}
+
+a[target]{
+    font-style: italic;
+}
+
+/* Tout a dont l'attribut href contient "amazon" */
+a[href*="amazon"]{
+    font-family: monospace;
+}
+
+/*Tout a dont l'attribut href termine par ".fr" */
+a[href$=".fr"]{
+    background-color: brown;
+}
+
+/*Tout a dont l'attrivut href commence par "https" */
+a[href^="https"]::before{
+    content: "\2713";
+}

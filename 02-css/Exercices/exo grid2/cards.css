@@ -1,0 +1,99 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 00;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+}
+
+header{
+    text-align: center;
+    font-size: 3em;
+}
+main{
+    display: grid;
+    min-height: 100vh;
+    margin: 50px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 400px;
+    gap: 10px;
+    grid-template-areas: 
+    "card1 card2 card3 card4";
+   }
+
+footer{
+    height: 25px;
+    background-color: grey;
+}
+
+#card1{
+    grid-area: card1;
+    display: flex;
+    flex-direction: column;
+    border: 2px inset black;
+    
+}
+
+#card2{
+    grid-area: card2;
+    display: flex;
+    flex-direction: column;
+    border: 2px inset black;
+}
+
+#card3{
+    grid-area: card3;
+    display: flex;
+    flex-direction: column;
+    border: 2px inset black;
+}
+
+#card4{
+    grid-area: card4;
+    display: flex;
+    flex-direction: column;
+    border: 2px inset black;
+
+}
+
+#image1{
+    background-image: url(../../ressources/images/image1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+}
+
+#image2{
+    background-image: url(../../ressources/images/image2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+}
+
+#image3{
+    background-image: url(../../ressources/images/image3.webp);
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+}
+
+#image4{
+    background-image: url(../../ressources/images/image4.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+}
+
+@media screen and (max-width: 600px){
+    main{
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "card1"
+    "card2"
+    "card3"
+    "card4";
+    }
+}

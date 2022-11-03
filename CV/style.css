@@ -6,6 +6,7 @@
 
 /* -----------------------------NAVBAR----------------------------- */
 nav{
+    top:0px;
     height: 40px;
     background-color: rgb(112, 13, 13);
     color: antiquewhite;
@@ -24,13 +25,20 @@ nav>ul>li{
     margin: 5px;
 }
 
+nav>ul>li>a{
+    list-style-type: none;
+    margin: 5px;
+    text-decoration: none;
+    color: antiquewhite;
+}
+
 nav>h3{
     position: absolute;
     right:10px;
     top:10px;
 }
 
-/* ---------------------------PAGE 1 Présentation --------------------- */
+/* --------------------------- PAGE 1 Présentation ------------------------------ */
 
 #presentation{
     height: 100vh;
@@ -50,24 +58,90 @@ nav>h3{
     height: 250px;
     width: 250px;
     border-radius: 50%;
-    left: 200px;
-    top: 100px;    
+    left: 10%;
+    top: 100px;
+    animation: photo 3s ease-in-out;
 }
 
 #nom{
     top: 150px;
-    right: 100px;
+    right: 10%;
     height: 100px;
     width: 450px;
     font-size: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: nom 3s ease-in-out;
 }
 
 #presentationdiv{
     top: 400px;
-    right: 100px;
+    right: 10%;
     width: 600px;
     height: 350px;
+    animation: nom 3s ease-in-out;
+}
+
+/* --------------------------- PAGE 2 Expérience ------------------------------- */
+
+#experience{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./ressources/image/background6.jpg);
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#experience>div{
+    width: 800px;
+    height: 200px;
+    background-color: antiquewhite;
+    border: red inset 5px;
+}
+
+/* --------------------------- PAGE 3 Formation ------------------------------- */
+
+
+#formation{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./ressources/image/background6.jpg);
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#formation>div{
+    width: 800px;
+    height: 200px;
+    background-color: antiquewhite;
+    border: red inset 5px;
+}
+
+/* --------------------------- Animation ------------------------------- */
+
+@keyframes photo{
+    from{
+        left: -700px;
+    }
+    to{
+        left: 10%;
+    }
+}
+
+@keyframes nom{
+    from{
+        right: -700px;
+    }
+    to{
+        right: 10%;
+    }
 }

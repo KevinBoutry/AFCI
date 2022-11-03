@@ -1,10 +1,35 @@
+@font-face{
+    font-family:"HnW";
+    src: url(./ressources/font/Home\ And\ Work.otf);
+}
+
+@font-face{
+    font-family: "Squash";
+    src: url(./ressources/font/Just\ Squash.otf);
+}
+
+@font-face{
+    font-family: "Louis";
+    src: url(./ressources/font/Louis\ George\ Cafe.ttf);
+}
+
 *, ::before, ::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* -----------------------------NAVBAR----------------------------- */
+main{
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
+    font-family: "Louis";
+}
+
+main>div{
+    scroll-snap-align: start;
+}
+
+/* -----------------------------  NAVBAR  ----------------------------- */
 nav{
     top:0px;
     height: 40px;
@@ -73,6 +98,7 @@ nav>h3{
     justify-content: center;
     align-items: center;
     animation: nom 3s ease-in-out;
+    font-family: "Louis";
 }
 
 #presentationdiv{
@@ -104,6 +130,11 @@ nav>h3{
     border: red inset 5px;
 }
 
+.entreprise>img{
+    width: 200px;
+    height: 50px;
+}
+
 /* --------------------------- PAGE 3 Formation ------------------------------- */
 
 
@@ -124,6 +155,15 @@ nav>h3{
     height: 200px;
     background-color: antiquewhite;
     border: red inset 5px;
+    padding: 15px;
+}
+
+.diplome{
+    color: darkgrey;
+}
+
+.date{
+    font-style: italic;
 }
 
 /* --------------------------- Animation ------------------------------- */

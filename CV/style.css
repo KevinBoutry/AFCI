@@ -1,14 +1,4 @@
 @font-face{
-    font-family:"HnW";
-    src: url(./ressources/font/Home\ And\ Work.otf);
-}
-
-@font-face{
-    font-family: "Squash";
-    src: url(./ressources/font/Just\ Squash.otf);
-}
-
-@font-face{
     font-family: "Louis";
     src: url(./ressources/font/Louis\ George\ Cafe.ttf);
 }
@@ -19,10 +9,19 @@
     box-sizing: border-box;
 }
 
+body{
+    overflow-y: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height:100vh;
+}
+
 main{
     scroll-snap-type: y mandatory;
     scroll-snap-stop: always;
     font-family: "Louis";
+    overflow-y: auto;
+    height: 100%;
 }
 
 main>div{
@@ -47,7 +46,12 @@ nav>ul{
 
 nav>ul>li{
     list-style-type: none;
-    margin: 5px;
+    margin: 10px;
+
+}
+
+nav>ul>li:hover{
+    transform: translate(0px , -5px);
 }
 
 nav>ul>li>a{
@@ -71,6 +75,7 @@ nav>h3{
     background-image: url(./ressources/image/background6.jpg);
     background-size: 100%;
     background-position: center;
+    position: relative;
 }
 
 #presentation>div{

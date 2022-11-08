@@ -1,0 +1,33 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw
+}
+
+header{
+    height: 200px;
+    background-color: aqua;
+}
+
+#grille{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    background-color: black;
+}
+
+#grille>div{
+    height : 100px;
+    width : 100px;
+    background-color: brown;
+    margin : 2px;
+}

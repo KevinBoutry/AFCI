@@ -19,9 +19,7 @@ header{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 50px;
+    padding: 50px;
     background-color: black;
 }
 
@@ -30,4 +28,10 @@ header{
     width : 100px;
     background-color: brown;
     margin : 2px;
+}
+
+#input{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
 }

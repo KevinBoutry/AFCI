@@ -5,7 +5,6 @@ function tri(x , y)
     return x - y;
 }
 
-
 let i;
 let input;
 let n =[]

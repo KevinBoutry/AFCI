@@ -1,0 +1,56 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 50px;
+    width: 100vw;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+main{
+    height : 90vh;
+    width : 100vw;
+    background-color: pink;
+}
+
+footer{
+    text-align: center;
+}
+
+.bar{
+    height : 40px;
+    width : 100vw;
+    background-color: grey;
+}
+
+.progress{
+    height : 40px;
+    width: 0vw;
+    background-color: greenyellow;
+    animation: progress 10s linear forwards;
+}
+
+.clock{
+    position: absolute;
+    height : 350px;
+    width : 350px;
+    background-color: white;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes progress
+{
+    from{
+        width : 0vw
+    }
+    to{
+        width : 100vw
+    }
+}

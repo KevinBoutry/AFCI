@@ -1,0 +1,54 @@
+.clock{
+    position: absolute;
+    height : 350px;
+    width : 350px;
+    background-color: white;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pivot{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-radius: 50%;
+    left : 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hour{
+    position: absolute;
+    height: 15px;
+    width : 125px;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+    transform: rotate();
+}
+
+.minute{
+    position: absolute;
+    height: 10px;
+    width : 150px;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+    transform: rotate();
+}
+
+.second{
+    position: absolute;
+    height: 5px;
+    width : 175px;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+    transform: rotate();
+}

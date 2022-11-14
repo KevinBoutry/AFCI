@@ -26,8 +26,8 @@ header{
 #grille>div{
     height : 100px;
     width : 100px;
-    background-color: brown;
     margin : 2px;
+    color: antiquewhite;
 }
 
 #input{
@@ -38,4 +38,9 @@ header{
 
 .hidden{
     display: none;
+}
+
+main div div img{
+    height : 100px;
+    width : 100px;
 }

@@ -18,6 +18,7 @@
     left : 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
 }
 
 .hour{
@@ -28,7 +29,9 @@
     left: 50%;
     top: 50%;
     transform: translate(0, -50%);
-    transform: rotate();
+    transform: rotate(0deg);
+    transform-origin: left center;
+    
 }
 
 .minute{
@@ -39,7 +42,9 @@
     left: 50%;
     top: 50%;
     transform: translate(0, -50%);
-    transform: rotate();
+    transform: rotate(90deg);
+    transform-origin: left center;
+   
 }
 
 .second{
@@ -50,5 +55,7 @@
     left: 50%;
     top: 50%;
     transform: translate(0, -50%);
-    transform: rotate();
+    transform: rotate(180deg);
+    transform-origin: left center;
+   
 }

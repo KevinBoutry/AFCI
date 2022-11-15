@@ -4,7 +4,7 @@
 // Se renseigner sur l'objet date : "new Date();""
 // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
 
-const date = new Date();
+let date = new Date();
 console.log(date);
 
 // * Changer le span dans le footer par l'année en cours.
@@ -24,27 +24,52 @@ span.innerHTML = `${annee}`;
 // * se renseigner pour cela sur clearInterval :
 // https://developer.mozilla.org/en-US/docs/Web/API/clearInterval
 
-myRuntime();
+const heure = document.querySelector("time")
 
-var myTime = setInterval(()=>myRuntime(), 1000);
-
-function myRuntime() 
+function timer()
 {
-    var heure = document.querySelector("time");
-    var result = date.toLocaleTimeString();
-    console.log(result);
-    heure.innerHTML = result;
+    const dateTimer = new Date();
+    heure.textcontent = dateTimer.toLocaleTimeString();
 }
 
-function myStoptime() {
-    clearInterval(myTime);
-}
+let idInterval = setInterval(timer, 1000);
+
+
+// myRuntime();
+
+// var myTime = setInterval(()=>myRuntime(), 1000);
+
+// function myRuntime() 
+// {
+//     var heure = document.querySelector("time");
+//     var result = date.toLocaleTimeString();
+//     console.log(result);
+//     heure.innerHTML = result;
+// }
+
+// function myStoptime() {
+//     clearInterval(myTime);
+// }
 
 const btnstop = document.querySelector("button");
-btnstop.addEventListener("click", myStoptime())
+btnstop.addEventListener("click", ()=>clearInterval(idInterval));
 
 // * Se renseigner sur setTimeout()
 // https://developer.mozilla.org/en-US/docs/Web/API/setTimeout
+
+let idTimeout = setTimeout(()=>console.log("Coucou en retard!"),3000);
+
+const progress = document.querySelector(".progress");
+let w = 0;
+function load()
+{
+    if(w === 100)return;
+    w++;
+    progress.getElementsByClassName.width = w+"%";
+    setTimeout(load, 100);
+}
+load();
+
 
 // * Créer une fonction réccurcive (qui s'appelle elle même) utilisant setTimeout pour attendre 1 seconde avant de se lancer. Celle ci devra permettre de remplir la barre de progression visible sur le gif.
 // les traces noires sont un bug de la capture, ne pas en tenir compte

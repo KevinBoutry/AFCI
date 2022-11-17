@@ -13,6 +13,11 @@ header{
     background-color: aqua;
 }
 
+header img{
+    height: 180px;
+    width : 250px;
+}
+
 #grille{
     display: flex;
     flex-direction: row;
@@ -21,6 +26,7 @@ header{
     align-items: center;
     padding: 50px;
     background-color: black;
+    min-height: 500px;
 }
 
 #grille>div{
@@ -62,4 +68,53 @@ main div div img{
     left: 50%;
     transform: translate(-50%);
     border-radius: 5px;
+}
+
+#lose{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+    background-color: antiquewhite;
+    text-align: center;
+    z-index: -1;
+}
+
+#lose h2{
+    font-size: 2rem;
+    color: rgb(138, 17, 17);
+    margin-top: 20px;
+}
+
+#lose p{
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+#fight{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity : 0;
+}
+
+.fightanim
+{
+    animation : fightanim 1s ease-in;
+}
+
+@keyframes fightanim
+{
+    from{
+        opacity : 0;    
+    }      
+    90%{
+        opacity : 1
+    }
+    to{
+        opacity : 0
+    }
 }

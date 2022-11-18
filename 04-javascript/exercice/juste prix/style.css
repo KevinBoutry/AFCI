@@ -1,0 +1,92 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#carte{
+    position: absolute;
+    left : 50%;
+    height : 250px;
+    width : 180px;
+    background-color: blueviolet;
+    top: 100px;
+    transform: translate(-50%);
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+}
+
+#restart{
+    position : relative;
+    left: 50%;
+    transform: translate(-50%);
+    top : 50px;
+    opacity: 0;
+}
+
+#indice{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    font-size : 2rem;
+    width : 100vw;
+    text-align: center;
+}
+
+#proposition{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#proposition input{
+    width : 50px;
+}
+
+#proposer{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    height : 30px;
+    width: 120px;
+    font-size: 1.3rem;
+}
+
+#win{
+    position: relative;
+    font-size: 7rem;
+    text-align: center;
+    opacity: 0;
+}
+
+.animation{
+    animation: animation 2s ease-in 0.5s forwards;
+}
+
+.animcarte{
+    animation: animcarte 2s ease-in ;
+}
+
+@keyframes animation
+{
+    from{
+        opacity : 0
+    }
+    to{
+        opacity : 1
+    }
+}
+
+@keyframes animcarte
+{
+    from{
+        transform: rotateY(0)
+    }
+    to{
+        transform: rotateY(1turn)
+
+    }
+}

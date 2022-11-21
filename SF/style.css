@@ -18,6 +18,32 @@ header img{
     width : 250px;
 }
 
+#base{
+    display: flex;
+    flex-direction: row;
+}
+
+#achievement{
+    width: 20%;
+    background-color: coral;
+    min-height: 500px;
+}
+
+#achievement div{
+    position: relative;
+    width: 90%;
+    height : 250px;
+    border-radius: 25px;
+    background-color: antiquewhite;
+    text-align: center;
+    display: none;
+}
+
+h3{
+    color: blue;
+    font-size: 1.5rem;
+}
+
 #grille{
     display: flex;
     flex-direction: row;
@@ -27,6 +53,7 @@ header img{
     padding: 50px;
     background-color: black;
     min-height: 500px;
+    width: 80%;
 }
 
 #grille>div{
@@ -42,9 +69,9 @@ header img{
     margin-top: 25px;
 }
 
-.hidden{
+/* .hidden{
     display: none;
-}
+} */
 
 main div div img{
     height : 100px;
@@ -70,7 +97,7 @@ main div div img{
     border-radius: 5px;
 }
 
-#lose{
+#lose, #win{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -79,16 +106,16 @@ main div div img{
     height: 200px;
     background-color: antiquewhite;
     text-align: center;
-    z-index: -1;
+    display: none;
 }
 
-#lose h2{
+h2{
     font-size: 2rem;
     color: rgb(138, 17, 17);
     margin-top: 20px;
 }
 
-#lose p{
+#lose p, #win p{
     margin-top: 20px;
     font-size: 1.5rem;
 }
@@ -117,4 +144,8 @@ main div div img{
     to{
         opacity : 0
     }
+}
+
+#abigail{
+    background-image: url("./ressources/char\ icons/abigail.png");
 }

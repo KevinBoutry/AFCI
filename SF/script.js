@@ -4,9 +4,9 @@
 const input = document.querySelector("input")
 // const visant l'ensemble des vignettes de personnages
 const char = document.querySelectorAll(".hidden");
-// const visant le bouton reset
-const btn = document.querySelector("#btn");
-// const visant le bouton stop
+// const visant le bouton restart
+const restart = document.querySelector("#restart");
+// const visant le bouton abandon
 const stopbtn = document.querySelector("#stop");
 // const visant le chrono
 const chrono = document.querySelector("#timer");
@@ -16,6 +16,10 @@ const fightimg = document.querySelector("#fight");
 const lose = document.querySelector("#lose")
 // const visant le message de défaite
 const losemsg = document.querySelector("#lose p")
+// const visant la div victoire
+const win = document.querySelector("#win")
+// const visant le message de victoire
+const winmsg = document.querySelector("#win p")
 
 // var permettant de mettre le chrono à 0
 var minutes = 0
@@ -26,21 +30,35 @@ var intervalID = 0;
 
 // var stockant le nombre de personnages trouvés
 var charfound = 0
+// var stockant le nombre de personnages avec class girl
+var girlcount = 0
 
 // Fonction vérifiant les noms entrés dans l'input et les comparants avec les id de toutes les vignettes, on eleve l'attirbut hidden de la vignette si un match est trouvé.
 input.addEventListener("input", inputTOvar);
 
 function inputTOvar(k)
 {
-    console.log(k.target.value);
     for (let i = 0 ; i < 46 ; i++)
     {
-        if(char[i].id == k.target.value)
+        if(char[i].innerText == k.target.value.toLowerCase())
         {
             char[i].classList.remove("hidden");
-            charfound = charfound + 1
-            console.log(charfound)
-            input.value = ''
+            charfound = charfound + 1;
+            input.value = '';
+            char[i].innerText = ''
+            console.log(charfound);
+            // if(char[i].classList.contains("girl"))
+            // {
+            //     girlcount = girlcount + 1;
+            //     console.log(girlcount);
+            // }
+            // Se déclenche si tous les personnages ont été trouvés
+            if (charfound == 46)
+            {
+                clearInterval(intervalID);
+                win.style.display = ("block");
+                    winmsg.innerHTML = `Congratulations, you won in ${minutes} minutes and ${secondes} seconds`;
+            }
             return               
         }
     }   
@@ -57,7 +75,6 @@ function chronoplus()
         secondes = 0;
         minutes++
     }
-    console.log(secondes, minutes);
     chrono.innerHTML = `${minutes} : ${secondes}`
 }
 
@@ -69,14 +86,14 @@ input.addEventListener("input", function()
     }
 })
 
-// fonction pour stopper le chrono avec le bouton STOP
+// fonction pour stopper avec le bouton ABANDON
 stopbtn.addEventListener("click",defaite);
 
 function defaite()
 {
     clearInterval(intervalID);
-    lose.style.zIndex = ("2");
-    losemsg.innerHTML = `Vous avez trouvé ${charfound} personnages en ${minutes} minutes et ${secondes} secondes`
+    lose.style.display = ("block");
+    losemsg.innerHTML = `You found ${charfound} characters in ${minutes} minutes and ${secondes} seconds`
 }
 
 // Lancement du logo fight lorsque l'on commence à taper le 1er nom
@@ -88,7 +105,7 @@ function fight()
 }
 
 //fonction pour tout remettre à zero avec le bouton reset
-btn.addEventListener("click", reset);
+restart.addEventListener("click", reset);
 
 function reset()
 {
@@ -100,8 +117,8 @@ function reset()
     secondes = 0;
     minutes = 0;
     intervalID = 0;
-    lose.style.zIndex = ("-1");
+    lose.style.display = ("none");
+    win.style.display = ("none");
     chrono.innerHTML = `${minutes} : ${secondes}`
+    charfound = 0
 }
-
-// déclenchement de l'écran victoire quand tous les noms ont été trouvé

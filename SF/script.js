@@ -30,8 +30,15 @@ var intervalID = 0;
 
 // var stockant le nombre de personnages trouvés
 var charfound = 0
+// const visant la box achievement girl
+const girl = document.querySelector("#girlpower")
 // var stockant le nombre de personnages avec class girl
 var girlcount = 0
+// const visant la box achievement OG
+const og = document.querySelector("#OG")
+// var stockant le nombre de personnages avec class original
+var ogcount = 0
+
 
 // Fonction vérifiant les noms entrés dans l'input et les comparants avec les id de toutes les vignettes, on eleve l'attirbut hidden de la vignette si un match est trouvé.
 input.addEventListener("input", inputTOvar);
@@ -46,12 +53,7 @@ function inputTOvar(k)
             charfound = charfound + 1;
             input.value = '';
             char[i].innerText = ''
-            console.log(charfound);
-            // if(char[i].classList.contains("girl"))
-            // {
-            //     girlcount = girlcount + 1;
-            //     console.log(girlcount);
-            // }
+            achievement(char[i])
             // Se déclenche si tous les personnages ont été trouvés
             if (charfound == 46)
             {
@@ -65,7 +67,7 @@ function inputTOvar(k)
 }
 
 // fonction gérant le déroulement du chrono
-chrono.innerHTML = `${minutes} : ${secondes}`
+chrono.innerHTML = `${minutes} : 0${secondes}`
 
 function chronoplus()
 {
@@ -121,4 +123,25 @@ function reset()
     win.style.display = ("none");
     chrono.innerHTML = `${minutes} : ${secondes}`
     charfound = 0
+}
+
+function achievement(e)
+{
+    if(e.classList.contains("original"))
+    {
+        ogcount = ogcount + 1
+        if(ogcount == 8)
+        {
+            og.style.display = ("block");
+        }
+    }
+
+    if(e.classList.contains("girl"))
+    {
+        girlcount = girlcount + 1
+        if(girlcount == 16)
+        {
+            girl.style.display = ("block");
+        }
+    }
 }

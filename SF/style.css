@@ -1,3 +1,8 @@
+@font-face{
+    font-family:"SF";
+    src: url("./ressources/font/Act_Of_Rejection.ttf");
+}
+
 *, ::before, ::after{
     margin: 0;
     padding: 0;
@@ -5,17 +10,31 @@
 }
 
 body{
-    width: 100vw
+    width: 100%
 }
 
 header{
     height: 200px;
-    background-color: aqua;
+    background-image: url("./ressources/image/background.jpg");
+    background-position: 25% 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header img{
     height: 180px;
     width : 250px;
+}
+
+header h1{
+    font-family: "SF";
+    font-size: 5rem;
+    background-image: linear-gradient(0deg, rgba(201,34,34,1) 0%, rgba(252,0,0,1) 40%, rgba(255,239,0,1) 100%);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    text-shadow: 1px 1px 1px black;
 }
 
 #base{
@@ -27,21 +46,37 @@ header img{
     width: 20%;
     background-color: coral;
     min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #achievement div{
+    margin-top: 5px;
     position: relative;
     width: 90%;
     height : 250px;
     border-radius: 25px;
     background-color: antiquewhite;
     text-align: center;
-    display: none;
+    /* display: none; */
+}
+
+#achievement div img{
+    height: 100px;
+    width: 150px;
+    margin: 15px;
+}
+
+#achievement div p{
+    margin-top: 10px;
 }
 
 h3{
     color: blue;
     font-size: 1.5rem;
+    font-family: "SF";
+    padding: 10px;
 }
 
 #grille{
@@ -61,6 +96,7 @@ h3{
     width : 100px;
     margin : 2px;
     color: antiquewhite;
+    background-size: cover;
 }
 
 #input{
@@ -69,30 +105,25 @@ h3{
     margin-top: 25px;
 }
 
-/* .hidden{
+.hidden{
     display: none;
-} */
-
-main div div img{
-    height : 100px;
-    width : 100px;
 }
 
 #timer{
-    margin-top: 50px;
+    margin-top: 10px;
     color: red;
     font-size: 4rem;
     text-align: center;
 }
 
 #stop{
-    margin-top: 20px;
+   
     width: 250px;
     height: 100px;
     font-size: 3rem;
-    position: relative;
+    position: absolute;
     text-align: center;
-    left: 50%;
+    left: 80%;
     transform: translate(-50%);
     border-radius: 5px;
 }
@@ -148,4 +179,136 @@ h2{
 
 #abigail{
     background-image: url("./ressources/char\ icons/abigail.png");
+}
+#akira{
+    background-image: url("./ressources/char\ icons/akira.png");
+}
+#akuma{
+    background-image: url("./ressources/char\ icons/akuma.png");
+}
+#alex{
+    background-image: url("./ressources/char\ icons/alex.png");
+}
+#balrog{
+    background-image: url("./ressources/char\ icons/balrog.png");
+}
+#birdie{
+    background-image: url("./ressources/char\ icons/birdie.png");
+}
+#blanka{
+    background-image: url("./ressources/char\ icons/blanka.png");
+}
+#cammy{
+    background-image: url("./ressources/char\ icons/cammy.png");
+}
+#chunli{
+    background-image: url("./ressources/char\ icons/chunli.png");
+}
+#cody{
+    background-image: url("./ressources/char\ icons/cody.png");
+}
+#dan{
+    background-image: url("./ressources/char\ icons/dan.png");
+}
+#dhalsim{
+    background-image: url("./ressources/char\ icons/dhalsim.png");
+}
+#ed{
+    background-image: url("./ressources/char\ icons/ed.png");
+}
+#ehonda{
+    background-image: url("./ressources/char\ icons/ehonda.png");
+}
+#falke{
+    background-image: url("./ressources/char\ icons/falke.png");
+}
+#fang{
+    background-image: url("./ressources/char\ icons/F.A.N.G.png");
+}
+#g{
+    background-image: url("./ressources/char\ icons/g.png");
+}
+#gill{
+    background-image: url("./ressources/char\ icons/gill.png");
+}
+#guile{
+    background-image: url("./ressources/char\ icons/guile.png");
+}
+#ibuki{
+    background-image: url("./ressources/char\ icons/ibuki.png");
+}
+#juri{
+    background-image: url("./ressources/char\ icons/juri.png");
+}
+#kage{
+    background-image: url("./ressources/char\ icons/kage.png");
+}
+#karin{
+    background-image: url("./ressources/char\ icons/karin.png");
+}
+#ken{
+    background-image: url("./ressources/char\ icons/ken.png");
+}
+#kolin{
+    background-image: url("./ressources/char\ icons/kolin.png");
+}
+#laura{
+    background-image: url("./ressources/char\ icons/laura.png");
+}
+#lucia{
+    background-image: url("./ressources/char\ icons/lucia.png");
+}
+#luke{
+    background-image: url("./ressources/char\ icons/luke.png");
+}
+#mbison{
+    background-image: url("./ressources/char\ icons/mbison.png");
+}
+#menat{
+    background-image: url("./ressources/char\ icons/menat.png");
+}
+#nash{
+    background-image: url("./ressources/char\ icons/nash.png");
+}
+#necalli{
+    background-image: url("./ressources/char\ icons/necalli.png");
+}
+#oro{
+    background-image: url("./ressources/char\ icons/oro.png");
+}
+#poison{
+    background-image: url("./ressources/char\ icons/poison.png");
+}
+#rashid{
+    background-image: url("./ressources/char\ icons/rashid.png");
+}
+#rmika{
+    background-image: url("./ressources/char\ icons/rmika.png");
+}
+#rose{
+    background-image: url("./ressources/char\ icons/rose.png");
+}
+#ryu{
+    background-image: url("./ressources/char\ icons/ryu.png");
+}
+#sagat{
+    background-image: url("./ressources/char\ icons/sagat.png");
+}
+#sakura{
+    background-image: url("./ressources/char\ icons/sakura.png");
+}
+#seth{
+    background-image: url("./ressources/char\ icons/seth.png");
+}
+#urien{
+    background-image: url("./ressources/char\ icons/urien.png");
+}
+#vega{
+    background-image: url("./ressources/char\ icons/vega.png");
+}
+#zangief{
+    background-image: url("./ressources/char\ icons/zangief.png");
+}
+#zeku{
+    background-image: url("./ressources/char\ icons/zeku.png");
 }

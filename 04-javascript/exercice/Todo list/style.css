@@ -1,0 +1,49 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100vw;
+    min-height: 100px;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+#todo{
+
+    width : 800px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom : 5px
+}
+
+button{
+    width: 100px;
+    height: 40px;
+    background-color: brown;
+    color: antiquewhite;
+    font-size: 1.3rem;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+div{
+    margin: 5px;
+    margin-left : 50px;
+    width: 90vw;
+    height: 50px;
+    background-color: rgb(224, 218, 218);
+    padding: 15px;
+}
+
+.fait{
+    text-decoration: line-through;
+    background-color: grey;
+    color: antiquewhite;
+}

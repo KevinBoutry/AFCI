@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SF5</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./char.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
@@ -27,7 +28,7 @@
                 <div class="hidden original girl" id="chunli">chunli</div>
                 <div class="hidden" id="cody">cody</div>
                 <div class="hidden" id="dan">dan</div>
-                <div class="hidden original" id="dhalsim">dhalsim</div>
+                <div class="hidden original bald" id="dhalsim">dhalsim</div>
                 <div class="hidden" id="ed">ed</div>
                 <div class="hidden original" id="ehonda">ehonda</div>
                 <div class="hidden" id="eleven">eleven</div>
@@ -49,13 +50,13 @@
                 <div class="hidden girl" id="menat">menat</div>
                 <div class="hidden" id="nash">nash</div>
                 <div class="hidden" id="necalli">necalli</div>
-                <div class="hidden" id="oro">oro</div>
+                <div class="hidden bald" id="oro">oro</div>
                 <div class="hidden girl" id="poison">poison</div>
                 <div class="hidden" id="rashid">rashid</div>
                 <div class="hidden girl" id="rmika">rmika</div>
                 <div class="hidden girl" id="rose">rose</div>
                 <div class="hidden original" id="ryu">ryu</div>
-                <div class="hidden" id="sagat">sagat</div>
+                <div class="hidden bald" id="sagat">sagat</div>
                 <div class="hidden girl" id="sakura">sakura</div>
                 <div class="hidden girl" id="seth">seth</div>
                 <div class="hidden" id="urien">urien</div>
@@ -74,6 +75,11 @@
                     <img src="./ressources/image/SF2logo.png" alt="">
                     <p>You found all members of SF2 original cast</p>
                 </div>
+                <div id="bald">
+                    <h3>Zidane</h3>
+                    <img src="" alt="">
+                    <p>You found all bald characters, Zizou approuves</p>
+                </div>
             </div>
         </div>
         <div id="fight"><img src="./ressources/image/fight.png" alt="fight"></div>
@@ -86,13 +92,16 @@
             <p></p>
         </div>
         <div id="bottom">
+            <div id="score"></div>
+            <div id="restart">
+                <button>RESTART</button>
+            </div>
             <div id="input">
                 <label for="character">Enter a character name :</label>
                 <input type="text" name="character" id="character" autofocus>            
             </div>
-            <button id="restart">restart</button></div>
             <div id="timer"></div>
-            <button id="stop">ABANDON</button>
+            <button id="stop">FORFEIT</button>
         </div>
     </main>
 </body>

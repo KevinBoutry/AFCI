@@ -20,6 +20,13 @@ const losemsg = document.querySelector("#lose p")
 const win = document.querySelector("#win")
 // const visant le message de victoire
 const winmsg = document.querySelector("#win p")
+// const visant la partie score
+const score = document.querySelector("#score")
+
+//var visant le score enregistré en local storage
+var HSC = localStorage.getItem("characters");
+var HSM = localStorage.getItem("minutes");
+var HSS = localStorage.getItem("secondes");    
 
 // var permettant de mettre le chrono à 0
 var minutes = 0
@@ -38,6 +45,10 @@ var girlcount = 0
 const og = document.querySelector("#OG")
 // var stockant le nombre de personnages avec class original
 var ogcount = 0
+// const visant la box achievement bald
+const bald = document.querySelector("#bald")
+// var stockant le nombre de personnages avec class original
+var baldcount = 0
 
 
 // Fonction vérifiant les noms entrés dans l'input et les comparants avec les id de toutes les vignettes, on eleve l'attirbut hidden de la vignette si un match est trouvé.
@@ -95,8 +106,22 @@ function defaite()
 {
     clearInterval(intervalID);
     lose.style.display = ("block");
-    losemsg.innerHTML = `You found ${charfound} characters in ${minutes} minutes and ${secondes} seconds`
+    losemsg.innerHTML = `You found ${charfound} characters in ${minutes} minutes and ${secondes} seconds`;
+    console.log(HSC , charfound);
+    if(HSC < charfound){
+        console.log(score, HSC, HSM, HSS);
+        localStorage.setItem("characters", `${charfound}`);
+        localStorage.setItem("minutes", `${minutes}`);
+        localStorage.setItem("secondes", `${secondes}`)
+    }
+    // HSC = localStorage.getItem("characters");
+    // HSM = localStorage.getItem("minutes");
+    // HSS = localStorage.getItem("secondes");    
+    score.innerText = `High Score : ${HSC} characters in ${HSM} minutes and ${HSS} seconds`
+    console.log(score, HSC, HSM, HSS);
 }
+
+score.innerText = `High Score : ${HSC} characters in ${HSM} minutes and ${HSS} seconds`
 
 // Lancement du logo fight lorsque l'on commence à taper le 1er nom
 input.addEventListener("input", fight)
@@ -142,6 +167,15 @@ function achievement(e)
         if(girlcount == 16)
         {
             girl.style.display = ("block");
+        }
+    }
+
+    if(e.classList.contains("bald"))
+    {
+        baldcount = baldcount + 1
+        if(baldcount == 3)
+        {
+            bald.style.display = ("block");
         }
     }
 }

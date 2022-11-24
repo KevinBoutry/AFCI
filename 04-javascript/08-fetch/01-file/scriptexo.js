@@ -1,9 +1,8 @@
 "use strict";
 
 const jsonurl = ("./hero.json")
-const header = document.querySelector("header")
-const main = document.querySelector("main")
 var select
+
 
 fetch(jsonurl).then(jsonparse)
 
@@ -21,17 +20,31 @@ function jsonparse(e)
 
 function HeroChoice(e)
 {
-    document.body.innerHTML = 
+    for(let i = 0; i < e.members.length; i++)
+    {
+        const m = document.createElement("li");
+        document.body.append(m);
+        m.innerHTML = `<input type="checkbox" name="${e.members[i].name}" value="${e.members[i].name}"> ${e.members[i].name}<br>`;
+        const mm = document.createElement("div");
+        document.body.append(mm);
+        mm.innerHTML=
         `
-        <header>
-        <input type="checkbox" name="${e.members[0].name}" value="${e.members[0].name}"> ${e.members[0].name}<br>
-        <input type="checkbox" name="${e.members[1].name}" value="${e.members[1].name}"> ${e.members[1].name}<br>
-        <input type="checkbox" name="${e.members[2].name}" value="${e.members[2].name}"> ${e.members[2].name}
-        </header>
-        `   
-    console.log(e.members[0]);
+        Nom : ${e.members[i].name}<br>
+        Age : ${e.members[i].age}<br>
+        Identité secrete : ${e.members[i].secretIdentity}<br>
+        Pouvoirs : ${e.members[i].powers}
+        `
+        mm.style.marginTop = ("15px")
+        // mm.style.display = ("none")
+
+        console.log(mm);
+
+        const input = document.querySelectorAll("input")
+        if(input[i].checked)
+        {
+            mm.style.display = ("block")
+        }
+
+    }
 }
-
-
-
 

@@ -23,6 +23,7 @@ const winmsg = document.querySelector("#win p")
 // const visant la partie score
 const score = document.querySelector("#score")
 
+
 //var visant le score enregistré en local storage
 var HSC = localStorage.getItem("characters");
 var HSM = localStorage.getItem("minutes");
@@ -37,18 +38,14 @@ var intervalID = 0;
 
 // var stockant le nombre de personnages trouvés
 var charfound = 0
-// const visant la box achievement girl
-const girl = document.querySelector("#girlpower")
 // var stockant le nombre de personnages avec class girl
 var girlcount = 0
-// const visant la box achievement OG
-const og = document.querySelector("#OG")
 // var stockant le nombre de personnages avec class original
 var ogcount = 0
-// const visant la box achievement bald
-const bald = document.querySelector("#bald")
-// var stockant le nombre de personnages avec class original
+// var stockant le nombre de personnages avec class bald
 var baldcount = 0
+// var stockant le nombre de personnages avec class boss
+var bosscount = 0
 
 
 // Fonction vérifiant les noms entrés dans l'input et les comparants avec les id de toutes les vignettes, on eleve l'attirbut hidden de la vignette si un match est trouvé.
@@ -58,21 +55,24 @@ function inputTOvar(k)
 {
     for (let i = 0 ; i < 46 ; i++)
     {
-        if(char[i].innerText == k.target.value.toLowerCase())
+        if(char[i].innerText != '')
         {
-            char[i].classList.remove("hidden");
-            charfound = charfound + 1;
-            input.value = '';
-            char[i].innerText = ''
-            achievement(char[i])
-            // Se déclenche si tous les personnages ont été trouvés
-            if (charfound == 46)
+            if(char[i].innerText == k.target.value.toLowerCase())
             {
-                clearInterval(intervalID);
-                win.style.display = ("block");
-                    winmsg.innerHTML = `Congratulations, you won in ${minutes} minutes and ${secondes} seconds`;
+                char[i].classList.remove("hidden");
+                charfound = charfound + 1;
+                input.value = '';
+                char[i].innerText = ''
+                achievement(char[i])
+                // Se déclenche si tous les personnages ont été trouvés
+                if (charfound == 46)
+                {
+                    clearInterval(intervalID);
+                    win.style.display = ("block");
+                        winmsg.innerHTML = `Congratulations, you won in ${minutes} minutes and ${secondes} seconds`;
+                }
+                return               
             }
-            return               
         }
     }   
 }
@@ -114,9 +114,9 @@ function defaite()
         localStorage.setItem("minutes", `${minutes}`);
         localStorage.setItem("secondes", `${secondes}`)
     }
-    // HSC = localStorage.getItem("characters");
-    // HSM = localStorage.getItem("minutes");
-    // HSS = localStorage.getItem("secondes");    
+    HSC = localStorage.getItem("characters");
+    HSM = localStorage.getItem("minutes");
+    HSS = localStorage.getItem("secondes");    
     score.innerText = `High Score : ${HSC} characters in ${HSM} minutes and ${HSS} seconds`
     console.log(score, HSC, HSM, HSS);
 }
@@ -150,14 +150,28 @@ function reset()
     charfound = 0
 }
 
+
+//fonction verifiant si un achievement est atteint et gérant son affichage
 function achievement(e)
 {
+    // const visant toute la partie achievement
+    const ach = document.querySelector("#achievement")
+    // const visant la 1ere div achievement
+    const achdiv1 = document.querySelector("#achievement div:nth-of-type(1)")
+    
     if(e.classList.contains("original"))
     {
         ogcount = ogcount + 1
         if(ogcount == 8)
         {
-            og.style.display = ("block");
+            let og = document.createElement("div");
+            ach.insertBefore(og, achdiv1);
+            og.innerHTML =
+            `
+            <h3>Old School</h3>
+            <img src="./ressources/image/SF2logo.png" alt="">
+            <p>You found all members of SF2 original cast</p>
+            `
         }
     }
 
@@ -166,7 +180,14 @@ function achievement(e)
         girlcount = girlcount + 1
         if(girlcount == 16)
         {
-            girl.style.display = ("block");
+            let girl = document.createElement("div");
+            ach.insertBefore(girl, achdiv1);
+            girl.innerHTML =
+            `
+            <h3>Girl Power !</h3>
+            <img src="./ressources/image/sfgirl.png"  alt="">
+            <p>You found all female characters</p>
+            `
         }
     }
 
@@ -175,7 +196,47 @@ function achievement(e)
         baldcount = baldcount + 1
         if(baldcount == 3)
         {
-            bald.style.display = ("block");
+            let bald = document.createElement("div");
+            ach.insertBefore(bald, achdiv1);
+            bald.innerHTML =
+            `
+            <h3>Zidane</h3>
+            <img src="./ressources/image/Zizou.jpg" alt="">
+            <p>You found all bald characters, Zizou approuves</p>
+            `
         }
     }
+
+    if(e.classList.contains("boss"))
+    {
+        bosscount = bosscount + 1
+        if(bosscount == 4)
+        {
+            let boss = document.createElement("div");
+            ach.insertBefore(boss, achdiv1);
+            boss.innerHTML =
+            `
+            <h3>The Four Horsemen</h3>
+            <img src="./ressources/image/sf2boss.png" alt="">
+            <p>The original badguys</p>
+            `
+        }
+    }
+    // const obsoptions =
+    // {
+
+    // }
+
+    // const observer = new IntersectionObserver(setIndicator, obsoptions)
+
+    // const achdiv = document.querySelectorAll("#achievement div")
+    // console.log(achdiv);
+    // observer.observe(achdiv[2])
+
+    // function setIndicator(entries)
+    // {
+    //     console.log(entries);
+    // }
 }
+
+

@@ -22,6 +22,10 @@ const win = document.querySelector("#win")
 const winmsg = document.querySelector("#win p")
 // const visant la partie score
 const score = document.querySelector("#score")
+// const visant la partie intro
+const intro = document.querySelector(".intro")
+// const visant le bouton close de la partie intro
+const closintro = document.querySelector(".intro button")
 
 
 //var visant le score enregistré en local storage
@@ -46,7 +50,8 @@ var ogcount = 0
 var baldcount = 0
 // var stockant le nombre de personnages avec class boss
 var bosscount = 0
-
+// var stockant le nombre de personnages avec class blond
+var blondcount = 0
 
 // Fonction vérifiant les noms entrés dans l'input et les comparants avec les id de toutes les vignettes, on eleve l'attirbut hidden de la vignette si un match est trouvé.
 input.addEventListener("input", inputTOvar);
@@ -131,24 +136,8 @@ function fight()
     fightimg.classList.add("fightanim")
 }
 
-//fonction pour tout remettre à zero avec le bouton reset
-restart.addEventListener("click", reset);
-
-function reset()
-{
-    for (let i = 0 ; i < 46 ; i++)
-    {
-        char[i].classList.add("hidden");
-    }
-    clearInterval(intervalID);
-    secondes = 0;
-    minutes = 0;
-    intervalID = 0;
-    lose.style.display = ("none");
-    win.style.display = ("none");
-    chrono.innerHTML = `${minutes} : ${secondes}`
-    charfound = 0
-}
+//fonction pour refresh la page avec le bouton restart
+restart.addEventListener("click", ()=>window.location.reload());
 
 
 //fonction verifiant si un achievement est atteint et gérant son affichage
@@ -222,6 +211,22 @@ function achievement(e)
             `
         }
     }
+
+    if(e.classList.contains("blond"))
+    {
+        blondcount = blondcount + 1
+        if(bosscount == 17)
+        {
+            let blond = document.createElement("div");
+            ach.insertBefore(blond, achdiv1);
+            blond.innerHTML =
+            `
+            <h3>Blond fighters</h3>
+            <img src="" alt="">
+            <p></p>
+            `
+        }
+    }
     // const obsoptions =
     // {
 
@@ -238,5 +243,10 @@ function achievement(e)
     //     console.log(entries);
     // }
 }
+
+// Fonction pour fermer la fenetre d'intro
+
+closintro.addEventListener("click",()=>intro.classList.add("hidden"));
+
 
 

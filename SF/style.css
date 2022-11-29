@@ -41,6 +41,21 @@ header h1{
     text-shadow: 1px 1px 1px black;
 }
 
+header p{
+    font-size: 1.3rem;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+header p svg{
+    height: 15px;
+}
+
+header p:hover{
+    cursor: pointer;
+}
+
 /* ------------------------------------------------------ BASE ----------------------------------------------------------- */
 
 #base{

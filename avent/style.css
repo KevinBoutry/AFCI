@@ -1,0 +1,130 @@
+@font-face{
+    font-family:"festive";
+    src: url("./ressources/christmas.otf");
+}
+
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#KB_div{
+    background-image: url("./ressources/bgnoel.jpg");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#KB_PN{
+    background-image: url("./ressources/perenoel.webp");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 350px;
+    width: 300px;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    animation: perenoel 3s 10s linear infinite;
+}
+
+#KB_MM{
+    background-image: url("./ressources/mimimathy.gif");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 200px;
+    animation: mimimathy 2s 2s linear forwards ;
+    opacity: 0%;
+}
+
+#KB_danse{
+    background-image: url("./ressources/danse.gif");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: -250px;
+    transform: translate(-50%, -50%);
+    height: 150px;
+    width: 400px;
+    animation: dance 3s 5s linear forwards;
+}
+
+#KB_MC{
+    background-image: url("./ressources/mariah.gif");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 300px;
+    width: 200px;
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0%;
+    animation: mariahcarey 2s 8s linear forwards;
+}
+
+#KB_text{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50% );
+    text-align: center;
+    font-size: 6rem;
+    font-family: "festive";
+    color: rgb(10, 48, 10);
+
+}
+
+@keyframes perenoel{
+    0%{
+        transform : translate(-50%, -50%) rotate(0turn);
+    }
+    100%{
+        transform : translate(-50%, -50%) rotate(1turn);
+    }
+}
+
+@keyframes mimimathy{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%
+    }
+}
+
+@keyframes dance{
+    0%{
+        top: -250px;
+    }
+    100%{
+        top: 20%;
+    }
+}
+
+@keyframes mariahcarey{
+    0%{
+        opacity: 0%;
+        width: 1500px;
+        height : 2250px;
+    }
+    5%{
+        opacity: 100%;
+    }
+    100%{
+        height: 300px;
+        width: 200px;
+        opacity: 100%;
+    }
+}
+

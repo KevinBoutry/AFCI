@@ -22,7 +22,7 @@ function tri()
         {
             resolve(tableau.sort(compare))
         }
-        else
+            else
         {
             reject("Impossible de trier plusieurs types différents")
         }
@@ -38,14 +38,14 @@ const fvert = document.querySelector("#feu div:nth-of-type(3)")
 const frouge = document.querySelector("#feu div:nth-of-type(1)")
 const forange = document.querySelector("#feu div:nth-of-type(2)")
 
-function feu()
-{
-    green().then(()=>{
-        orange().then(()=>{
-            red().then(()=>feu())   
-        })
-    })
-}
+// function feu()
+// {
+//     green().then(()=>{
+//         orange().then(()=>{
+//             red().then(()=>feu())   
+//         })
+//     })
+// }
 
 function green()
 {
@@ -72,3 +72,11 @@ function orange()
 }
 
 feu()
+
+async function feu()
+{
+    await green()
+    await orange()
+    await red()
+    feu()
+}

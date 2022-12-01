@@ -1,0 +1,41 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.slider{
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider img{
+    width: 800px;
+    height: 350px;
+    position: absolute;
+}
+
+.bouton{
+    position: relative;
+    top: 650px;
+    left: 50% ;
+}
+
+.bouton button{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.red

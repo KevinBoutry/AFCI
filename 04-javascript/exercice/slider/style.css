@@ -8,6 +8,7 @@ body{
     height: 100%;
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 
 .slider{
@@ -28,7 +29,6 @@ body{
 .bouton{
     position: relative;
     top: 650px;
-    left: 50% ;
 }
 
 .bouton button{
@@ -37,5 +37,3 @@ body{
     border-radius: 50%;
     background-color: grey;
 }
-
-.red

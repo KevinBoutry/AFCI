@@ -78,7 +78,7 @@ header p:hover{
     width: 90%;
     height : 250px;
     border-radius: 25px;
-    background-color: antiquewhite;
+    background-color: #D28D67ff;;
     text-align: center;
 }
 
@@ -90,10 +90,12 @@ header p:hover{
 
 #achievement div p{
     margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #283651ff;
 }
 
 h3{
-    color: blue;
+    color: #283651ff;
     font-size: 1.5rem;
     font-family: "SF";
     padding: 10px;
@@ -126,22 +128,39 @@ h3{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 200px;
-    background-color: antiquewhite;
     text-align: center;
-    display: none;
+    display: none;    
 }
 
 h2{
-    font-size: 2rem;
-    color: rgb(138, 17, 17);
+    font-size: 8rem;    
     margin-top: 20px;
+    font-family: "SF";
+}
+
+#win h2{
+    color: rgb(31, 19, 143);
+    text-shadow: 1px 1px 2px blue, 0 0 1em whitesmoke, 0 0 0.2em whitesmoke;
+}
+
+#lose h2{
+    color: rgb(138, 17, 17);
+    text-shadow: 1px 1px 2px red, 0 0 1em whitesmoke, 0 0 0.2em whitesmoke;
 }
 
 #lose p, #win p{
     margin-top: 20px;
     font-size: 1.5rem;
+    color: white;
+    padding: 5px;
+}
+
+#lose p{
+    background-color: rgb(138, 17, 17);
+}
+
+#win p{
+    background-color: blue;
 }
 
 #fight{
@@ -152,38 +171,35 @@ h2{
     opacity : 0;
 }
 
-.fightanim
-{
+.fightanim{
     animation : fightanim 1s ease-in;
 }
 
-.intro
-{
+.intro{
     display: flex;
     flex-direction: column;
     width: 70vw;
     height: 70vh;
-    background-color: aliceblue;
     position: absolute;
     z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 15px;
-    background-color: #C20114 ;
-
+    background-color: #D28D67ff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .intro h1{
     text-align: center;
     font-size: 3rem;
+    margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 .intro p{
-    padding-left: 20px;
-    padding-top: 20px;
-    font-size: 2rem;
-
+    padding: 20px;
+    font-size: 1.5rem;
 }
 
 .intro button{
@@ -193,6 +209,10 @@ h2{
    left: 50%;
    top: 85%;
    transform: translate(-50%);
+   font-size: 2rem;
+   background-color: #283651ff;
+   border-radius: 15px;
+   color: white;
 }
 
 
@@ -214,7 +234,7 @@ h2{
 
 #score{
     grid-area : score;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 #restart{
@@ -226,16 +246,27 @@ h2{
     width : 150px;
     height : 50px;
     font-family: "SF";
+    background-color: #D28D67ff;
+    border-radius: 5px;
 }
 
 #input{
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 10px;
     grid-area: input;
 }
 
+#input input{
+    width: 250px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+#input input::placeholder{
+    font-size: 1.5rem;
+}
+
 #timer{
-    margin-top: 10px;
     color: #D28D67ff;
     font-size: 4rem;
     text-align: center;
@@ -261,11 +292,8 @@ h2{
     from{
         opacity : 0;    
     }      
-    90%{
-        opacity : 1
-    }
     to{
-        opacity : 0
+        opacity : 100%;
     }
 }
 

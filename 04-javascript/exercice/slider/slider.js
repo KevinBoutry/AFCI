@@ -16,9 +16,6 @@ export default function slider(tab)
         e.addEventListener("click",()=>{
             index = index + 1;
             d.style.zIndex = (`${index}`);
-            e.style.color = ("red")
         })
     }
 }
-
-

@@ -1,25 +1,48 @@
 @font-face{
     font-family:"festive";
-    src: url("./ressources/christmas.otf");
+    src: url("./assets/font/christmas.otf");
 }
 
-*, ::before, ::after{git push
+*, ::before, ::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body{
+    height: 100%;
+    width: 100%
+}
+
+#card{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: brown;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#test{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+}
+
 #KB_div{
-    background-image: url("./ressources/bgnoel.jpg");
+    background-image: url("./assets/img/bgnoel.jpg");
     background-position: center;
     background-size: cover;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
 }
 
 #KB_PN{
-    background-image: url("./ressources/perenoel.webp");
+    background-image: url("./assets/img/perenoel.webp");
     background-position: center;
     background-size: cover;
     position: absolute;
@@ -33,7 +56,7 @@
 }
 
 #KB_MM{
-    background-image: url("./ressources/mimimathy.gif");
+    background-image: url("./assets/img/mimimathy.gif");
     background-position: center;
     background-size: cover;
     position: absolute;
@@ -47,20 +70,21 @@
 }
 
 #KB_danse{
-    background-image: url("./ressources/danse.gif");
+    background-image: url("./assets/img/danse.gif");
     background-position: center;
     background-size: cover;
     position: absolute;
+    overflow: hidden;
     left: 50%;
     top: -250px;
     transform: translate(-50%, -50%);
     height: 150px;
     width: 400px;
-    animation: dance 3s 5s linear forwards;
+    animation: dance 3s 4s linear forwards;
 }
 
 #KB_MC{
-    background-image: url("./ressources/mariah.gif");
+    background-image: url("./assets/img/mariah.gif");
     background-position: center;
     background-size: cover;
     position: absolute;
@@ -70,7 +94,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     opacity: 0%;
-    animation: mariahcarey 2s 8s linear forwards;
+    animation: mariahcarey 2s 7s linear forwards;
 }
 
 #KB_text{
@@ -82,7 +106,21 @@
     font-size: 6rem;
     font-family: "festive";
     color: rgb(10, 48, 10);
+}
 
+.kbcardopen{
+    animation : kbcardopen 0.3s linear forwards
+}
+
+@keyframes kbcardopen{
+    0%{
+        width: 242.5px;
+        height: 242.5px;
+    }
+    100%{
+        width: 100%;
+        height: 100%
+    }
 }
 
 @keyframes perenoel{

@@ -62,6 +62,20 @@ var bosscount = 0
 // var stockant le nombre de personnages avec class blond
 var blondcount = 0
 
+
+// On reload si le son est mute ou demute au lancement du site
+function loading()
+{
+    muted = localStorage.getItem("mute");
+    if (muted == "true")
+    {      
+        sfx.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>  Play Sound'
+    }
+}
+loading() 
+
+console.log(muted);
+
 // Fonction vérifiant les noms entrés dans l'input et les comparants avec les id de toutes les vignettes, on eleve l'attribut hidden de la vignette si un match est trouvé.
 input.addEventListener("input", inputTOvar);
 
@@ -77,7 +91,7 @@ function inputTOvar(k)
                 charfound++;
                 input.value = '';
                 char[i].innerText = ''
-                if(muted == false)
+                if(muted == "false")
                 {
                     coin.play();
                 }    
@@ -152,7 +166,7 @@ input.addEventListener("input", fight)
 function fight()
 {
     fightimg.classList.add("fightanim")
-    if(minutes == 0 && secondes == 0 && muted == false)
+    if(minutes == 0 && secondes == 0 && muted == "false")
     {
     fightsound.play()
     }
@@ -185,7 +199,7 @@ function achievement(e)
             <img src="./ressources/image/SF2logo.png" alt="">
             <p>You found all members of SF2 original cast</p>
             `
-            if(muted == false)
+            if(muted == "false")
             {
                 achivsound.play()
             }
@@ -205,7 +219,7 @@ function achievement(e)
             <img src="./ressources/image/sfgirl.png"  alt="">
             <p>You found all female characters</p>
             `
-            if(muted == false)
+            if(muted == "false")
             {
                 achivsound.play()
             }
@@ -225,7 +239,7 @@ function achievement(e)
             <img src="./ressources/image/Zizou.jpg" alt="">
             <p>You found all bald characters, Zizou approuves</p>
             `
-            if(muted == false)
+            if(muted == "false")
             {
                 achivsound.play()
             }
@@ -245,7 +259,7 @@ function achievement(e)
             <img src="./ressources/image/sf2boss.png" alt="">
             <p>The original badguys</p>
             `
-            if(muted == false)
+            if(muted == "false")
             {
                 achivsound.play()
             }
@@ -265,7 +279,7 @@ function achievement(e)
             <img src="" alt="">
             <p></p>
             `
-            if(muted == false)
+            if(muted == "false")
             {
                 achivsound.play()
             }
@@ -298,14 +312,3 @@ function mute()
     localStorage.setItem("mute", `${muted}`)
 }
 
-// On reload si le son est mute ou demute au lancement du site
-function loading()
-{
-    muted = localStorage.getItem("mute");
-    if (muted == "true")
-    {      
-        sfx.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>  Play Sound'
-    }
-}
-
-loading()

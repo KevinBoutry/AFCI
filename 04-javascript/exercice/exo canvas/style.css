@@ -20,3 +20,10 @@
         left: 20px;
         width: 65px;
     }
+
+    #cancel{
+        position: absolute;
+        top: 110px;
+        left: 20px;
+        width: 65px;
+    }

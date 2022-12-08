@@ -13,19 +13,19 @@ const chrono = document.querySelector("#timer");
 // const visant l'image fight
 const fightimg = document.querySelector("#fight");
 // const visant la div defaite
-const lose = document.querySelector("#lose")
+const lose = document.querySelector("#lose");
 // const visant le message de défaite
-const losemsg = document.querySelector("#lose p")
+const losemsg = document.querySelector("#lose p");
 // const visant la div victoire
-const win = document.querySelector("#win")
+const win = document.querySelector("#win");
 // const visant le message de victoire
-const winmsg = document.querySelector("#win p")
+const winmsg = document.querySelector("#win p");
 // const visant la partie score
-const score = document.querySelector("#score")
+const score = document.querySelector("#score");
 // const visant la partie intro
-const intro = document.querySelector(".intro")
+const intro = document.querySelector(".intro");
 // const visant le bouton close de la partie intro
-const closintro = document.querySelector(".intro button")
+const closintro = document.querySelector(".intro button");
 
 // const vérifiant si le son est mute
 var muted = false
@@ -63,7 +63,7 @@ var bosscount = 0
 var blondcount = 0
 
 
-// On reload si le son est mute ou demute au lancement du site
+// On vérifie si le son doit être mute ou demute au lancement du site
 function loading()
 {
     muted = localStorage.getItem("mute");
@@ -74,14 +74,12 @@ function loading()
 }
 loading() 
 
-console.log(muted);
-
 // Fonction vérifiant les noms entrés dans l'input et les comparants avec les id de toutes les vignettes, on eleve l'attribut hidden de la vignette si un match est trouvé.
 input.addEventListener("input", inputTOvar);
 
 function inputTOvar(k)
 {
-    for (let i = 0 ; i < 46 ; i++)
+    for (let i = 0 ; i < 45 ; i++)
     {
         if(char[i].innerText != '')
         {
@@ -97,7 +95,7 @@ function inputTOvar(k)
                 }    
                 achievement(char[i])
                 // Se déclenche si tous les personnages ont été trouvés
-                if (charfound == 46)
+                if (charfound == 45)
                 {
                     clearInterval(intervalID);
                     win.style.display = ("block");
@@ -180,12 +178,12 @@ restart.addEventListener("click", ()=>{
 
 //fonction verifiant si un achievement est atteint et gérant son affichage
 function achievement(e)
-{
+{  
     // const visant toute la partie achievement
-    const ach = document.querySelector("#achievement")
+    const ach = document.querySelector("#achievement");
     // const visant la 1ere div achievement
-    const achdiv1 = document.querySelector("#achievement div:nth-of-type(1)")
-    
+    const achdiv1 = document.querySelector("#achievement div:nth-of-type(1)");
+
     if(e.classList.contains("original"))
     {
         ogcount = ogcount + 1
@@ -311,4 +309,5 @@ function mute()
     // stockage du choix mute/demute en local storage
     localStorage.setItem("mute", `${muted}`)
 }
+
 

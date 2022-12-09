@@ -1,18 +1,230 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./kbstyle.css">
-    <script src="./scripts.js" defer></script>
-</head>
-<body>
-    <div id="test">
-        <div id="card">
-            Test carte
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Guillaume ------------------------------------------------------->
+    <link rel="stylesheet" href="/assets/css/guillaume.css" />
+    <!-- Merlin ----------------------------------------------------------->
+    <link rel="stylesheet" href="/assets/css/merlin.css" />
+    <script src="/assets/js/merlin.js" defer></script>
+    <!-- Kevin B ---------------------------------------------------------->
+    <link rel="stylesheet" href="/assets/css/kbstyle.css" />
+    <script src="/assets/js/kbscript.js" defer></script>
+    <!-- Laurence --------------------------------------------------------->
+    <link rel="stylesheet" href="/assets/css/laurence.css" />
+    <script src="/assets/js/laurence.js" defer></script>
+    <!-- Louis -------------------------------------------------------->
+    <link rel="stylesheet" href="/assets/css/louis.css" />
+    <script src="/assets/js/louis.js" defer></script>
+    <!-- Jody -------------------------------------------------------->
+    <link rel="stylesheet" href="/assets/css/jody.css" />
+    <script src="/assets/js/jody.js" defer></script>
+    <!-- Hugo -------------------------------------------------------->
+    <link rel="stylesheet" href="/assets/css/hugo.css" />
+    <script src="/assets/js/hugo.js" defer></script>
+    <!-- Page HOME -------------------------------------------------------->
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="/index.js" defer></script>
+    <!-- Fin des ajouts de fichiers --------------------------------------->
+    <title>Calendrier de l'avant</title>
+  </head>
+  <body>
+    <div id="view-animation"></div>
+    <header>
+      <h1 class="header_title">( Calendrier de l'avent )</h1>
+      <h2 class="header_subtitle">du DWWM07</h2>
+    </header>
+    <main>
+      <div id="case1" class="case maincontainer">
+        <div class="card thecard">
+          <div class="g-thefront"><h3>01</h3></div>
+          <div class="theback">
+            <img src="/assets/img/guizmo.jpg" alt="guizmo" />
+          </div>
         </div>
-    </div>
-</body>
+      </div>
+      <div id="case2" class="case case2">
+        <div class="card"><h3>02</h3></div>
+      </div>
+      <div id="case3" class="case case3">
+        <div class="card"><h3>03</h3></div>
+      </div>
+      <div id="case4" class="case case4">
+        <div class="card-container">
+          <div class="card-content">
+            <div id="hobby-music-4">
+              <img
+                src="./assets/img/cat-christmas.jpg"
+                alt="des chats qui chantent"
+                class="hobby-img"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="card"><h3>04</h3></div>
+      </div>
+      <div id="case5" class="case">
+        <div class="card-container">
+          <div class="card-content">
+            <div class="cards_merlin">
+              <div class="title_merlin">
+                <h1>Voyager avec <br />T̶r̶i̶v̶a̶g̶o̶ ➡ Ciao!</h1>
+              </div>
+              <div class="card_merlin_1">
+                <img src="/assets/img/tomahawk.png" alt="" />
+                <div class="merlin-subtitle">Une Hache ?</div>
+              </div>
+              <div class="card_merlin_2">
+                <img src="/assets/img/shining_hotel.jpg" alt="" />
+                <div class="merlin-subtitle">Un Hotel ?</div>
+              </div>
+              <div class="card_merlin_3">
+                <img src="/assets/img/johnny.jpg" alt="" />
+                <div class="merlin-subtitle">Un Johnny !</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card"><h3>05</h3></div>
+      </div>
+
+      <!-- <div class="calendrier case1">
+        <div class="porte">6</div>
+        <div class="message">La Saint Nicolas pour tous</div>
+      </div> -->
+
+      <div id="case6" class="case calendrier-case6">
+        <div class="card-container">
+          <div class="card-content message6">La Saint Nicolas pour tous</div>
+        </div>
+        <div class="card porte6"><h3>06</h3></div>
+      </div>
+
+      <div id="case7" class="case">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>07</h3></div>
+      </div>
+      <div id="case8" class="case">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>08</h3></div>
+      </div>
+      <div id="case9" class="case hugo">
+        <div class="card-container">
+          <div class="card-content">
+            <button class="hdnp-btn" role="button">Play</button>
+            <span class="consigne" style>
+              Appuyer sur espace pour éviter l'oiseau!!!
+            </span>
+          </div>
+        </div>
+        <div class="card"><h3>09</h3></div>
+      </div>
+      <div id="case10" class="case louis">
+        <img src="/assets/img/santa.webp" alt="" />
+        <p class="noel-font">On y est presque</p>
+        <h4>&#10007;</h4>
+        <div class="card"><h3>10</h3></div>
+      </div>
+      <div id="case11" class="case">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>11</h3></div>
+      </div>
+      <div id="case12" class="case kevin-B">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>12</h3></div>
+      </div>
+      <div id="case13" class="case ahcene">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>13</h3></div>
+      </div>
+      <div id="case14" class="case">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>14</h3></div>
+      </div>
+      <div id="case15" class="case louis">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>15</h3></div>
+        <div class="cursor"></div>
+      </div>
+      <div id="case16" class="case jonathan">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>16</h3></div>
+      </div>
+      <div id="case17" class="case jonathan">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>17</h3></div>
+      </div>
+      <div id="case18" class="case">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>18</h3></div>
+      </div>
+      <div id="case19" class="case hugo">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>19</h3></div>
+      </div>
+      <div id="case20" class="case louis">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>20</h3></div>
+      </div>
+      <div id="case21" class="case kevin-L">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>21</h3></div>
+      </div>
+      <div id="case22" class="case ahcene">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>22</h3></div>
+      </div>
+      <div id="case23" class="case jody">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>23</h3></div>
+      </div>
+      <div id="case24" class="case nolwenn">
+        <div class="card-container">
+          <div class="card-content"></div>
+        </div>
+        <div class="card"><h3>24</h3></div>
+      </div>
+    </main>
+    <footer>
+      <span>&#169; Copyright - AFCI-Formation-DWWM07 - 2022</span>
+    </footer>
+  </body>
 </html>
+afciAdventCalendar.github.io/index.html at main · afciAdventCalendar/afciAdventCalendar.github.io

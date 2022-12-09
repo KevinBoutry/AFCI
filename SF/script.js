@@ -1,7 +1,7 @@
 "use strict";
 
 // const visant l'input ou l'on rentre le nom des personnages
-const input = document.querySelector("input")
+const input = document.querySelector("input");
 // const visant l'ensemble des vignettes de personnages
 const char = document.querySelectorAll(".hidden");
 // const visant le bouton restart
@@ -26,15 +26,17 @@ const score = document.querySelector("#score");
 const intro = document.querySelector(".intro");
 // const visant le bouton close de la partie intro
 const closintro = document.querySelector(".intro button");
+// const visant le compteur de personnages trouvés
+const compteur = document.querySelector("#compteur")
 
 // const vérifiant si le son est mute
-var muted = false
+var muted = false;
 // Son qui se joue lorsqu'un personnage est trouvé.
-const coin = new Audio("./ressources/son/coin.mp3")
+const coin = new Audio("./ressources/son/coin.mp3");
 // Son qui se joue lorsqu'on tape le 1er nom.
-const fightsound = new Audio("./ressources/son/fight.mp3")
+const fightsound = new Audio("./ressources/son/fight.mp3");
 // Son qui se joue lorsqu'un achievement est débloqué
-const achivsound = new Audio("./ressources/son/achiv.mp3")
+const achivsound = new Audio("./ressources/son/achiv.mp3");
 
 
 //var visant le score enregistré en local storage
@@ -43,30 +45,32 @@ var HSM = localStorage.getItem("minutes");
 var HSS = localStorage.getItem("secondes");    
 
 // var permettant de mettre le chrono à 0
-var minutes = 0
+var minutes = 0;
 var secondes = 0;
 
 // var utilisé pour récupérer l'ID de notre chrono et pouvoir le stopper
 var intervalID = 0;
 
 // var stockant le nombre de personnages trouvés
-var charfound = 0
+var charfound = 0;
 // var stockant le nombre de personnages avec class girl
-var girlcount = 0
+var girlcount = 0;
 // var stockant le nombre de personnages avec class original
-var ogcount = 0
+var ogcount = 0;
 // var stockant le nombre de personnages avec class bald
-var baldcount = 0
+var baldcount = 0;
 // var stockant le nombre de personnages avec class boss
-var bosscount = 0
+var bosscount = 0;
 // var stockant le nombre de personnages avec class blond
-var blondcount = 0
+var blondcount = 0;
 
 
-// On vérifie si le son doit être mute ou demute au lancement du site
+// fonction qui sera lancé au chargement de la page
 function loading()
 {
+    // récupére le status de la var muted qui est stocké en localStorage
     muted = localStorage.getItem("mute");
+    // Si le son est mute, modifie l'affichage du bouton mute en conséquence
     if (muted == "true")
     {      
         sfx.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>  Play Sound'
@@ -79,26 +83,40 @@ input.addEventListener("input", inputTOvar);
 
 function inputTOvar(k)
 {
+    
     for (let i = 0 ; i < 45 ; i++)
     {
+        // On exclu les personnages dont l'innertext a été vidé.
         if(char[i].innerText != '')
         {
+            // On compare l'innerText des divs contenant les personnages avec ce qui est rentré dans l'input(input qui est passé en minusucle)
             if(char[i].innerText == k.target.value.toLowerCase())
             {
+                // On supprime la classe hidden de la div du personnage trouvé ce qui le rend visible à l'écran
                 char[i].classList.remove("hidden");
+                // On incrémente le compteur de personnages trouvés
                 charfound++;
+                // On vide le champ input pour pouvoir retaper de suite
                 input.value = '';
-                char[i].innerText = ''
+                // On vide l'innerText du personage pour qu'il sorte de la liste des personnages à trouver
+                char[i].innerText = '';
+                // On met à jour le compteur visible à l'écran
+                compteur.innerHTML = `${charfound} / 45`
+                // Si le son n'est pas mute, on joue un sfx pour chaques persos trouvés
                 if(muted == "false")
                 {
                     coin.play();
                 }    
+                // on lance la fonction achievement avec en argument le personnage trouvé
                 achievement(char[i])
                 // Se déclenche si tous les personnages ont été trouvés
                 if (charfound == 45)
                 {
+                    // stop le compteur
                     clearInterval(intervalID);
+                    // affiche le message de victoire
                     win.style.display = ("block");
+                    // modifie le message de victoire avec le chrono
                     winmsg.innerHTML = `Congratulations, you won in ${minutes} minutes and ${secondes} seconds`;
                 }
                 return               
@@ -108,8 +126,6 @@ function inputTOvar(k)
 }
 
 // fonction gérant le déroulement du chrono
-chrono.innerHTML = `${minutes} : 0${secondes}`
-
 function chronoplus()
 {
     secondes++;
@@ -118,9 +134,14 @@ function chronoplus()
         secondes = 0;
         minutes++
     }
+    // Gere l'affichage du chronometre
     chrono.innerHTML = `${minutes} : ${secondes}`
 }
 
+// Affichage du chrono avant que la partie ne soit lancée 0:00
+chrono.innerHTML = `${minutes} : 0${secondes}`
+
+// Le chrono se lance au moment du 1er input
 input.addEventListener("input", function()
 {
     if(intervalID == 0)
@@ -134,8 +155,11 @@ stopbtn.addEventListener("click",defaite);
 
 function defaite()
 {
+    // stoppe le chrono
     clearInterval(intervalID);
+    // affiche le message de défaite
     lose.style.display = ("block");
+    // modifie le message de défaite, avec le chrono et nombre de personnages trouvés
     losemsg.innerHTML = `You found ${charfound} characters in ${minutes} minutes and ${secondes} seconds`;
     // Verifie si le nouveau score est supérieur à celui enregistré en local storage et mets le score à jour si c'est le cas
     if(HSC < charfound){
@@ -146,6 +170,7 @@ function defaite()
     HSC = localStorage.getItem("characters");
     HSM = localStorage.getItem("minutes");
     HSS = localStorage.getItem("secondes");
+    // Affiche le score uniquement si il n'est pas nul
     if(HSM != null || HSS != null)
     { 
         score.innerText = `High Score : ${HSC} characters in ${HSM} minutes and ${HSS} seconds`

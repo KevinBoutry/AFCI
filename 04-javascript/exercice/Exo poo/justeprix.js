@@ -22,23 +22,23 @@ const justePrix =
         appli.append(h1, input, p);
         document.head.innerHTML += '<link rel="stylesheet" href="justeprix.css">';
         input.addEventListener("change",()=>
+        {
+            if(input.value > this.win)
             {
-                if(input.value > this.win)
-                {
-                    p.textContent = "C'est plus petit !"
-                    input.value=""
-                }
-                else if(input.value < this.win)
-                {
-                    p.textContent = "C'est plus grand !"
-                    input.value=""
-                }
-                else
-                {
-                    p.textContent = "VICTOIRE !"
-                    input.value=""
-                }
-            })            
+                p.textContent = "C'est plus petit !"
+                input.value=""
+            }
+            else if(input.value < this.win)
+            {
+                p.textContent = "C'est plus grand !"
+                input.value=""
+            }
+            else
+            {
+                p.textContent = "VICTOIRE !"
+                input.value=""
+            }
+        })            
     },
 }
 

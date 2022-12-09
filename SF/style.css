@@ -64,6 +64,13 @@ header p:hover{
     height: 65vh;
 }
 
+#compteur{
+    color: white;
+    position: absolute;
+    top: 20vh;
+    font-size: 2rem;
+}
+
 #achievement{
     width: 20%;
     background-color: #C7D6D5;

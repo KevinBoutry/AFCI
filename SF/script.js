@@ -170,7 +170,7 @@ function defaite()
     HSC = localStorage.getItem("characters");
     HSM = localStorage.getItem("minutes");
     HSS = localStorage.getItem("secondes");
-    // Affiche le score uniquement si il n'est pas nul
+    // Affiche le score uniquement si il n'est pas vide
     if(HSM != null || HSS != null)
     { 
         score.innerText = `High Score : ${HSC} characters in ${HSM} minutes and ${HSS} seconds`
@@ -189,6 +189,7 @@ input.addEventListener("input", fight)
 function fight()
 {
     fightimg.classList.add("fightanim")
+    // vérifie que le son n'est pas mute et que le chrono est à 0 afin que le son ne se lance qu'au 1er input
     if(minutes == 0 && secondes == 0 && muted == "false")
     {
     fightsound.play()

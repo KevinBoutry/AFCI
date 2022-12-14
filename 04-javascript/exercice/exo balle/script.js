@@ -4,7 +4,7 @@ import Balle from "./Balle.js";
 
 const balle = new Balle();
 
-balle.create()
+balle.create();
 
 window.addEventListener("click", newball)
 

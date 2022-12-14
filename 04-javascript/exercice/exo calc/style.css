@@ -1,0 +1,129 @@
+*, ::before, ::after{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(247, 159, 128);
+}
+
+#calc{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 70vh;
+    width : 50vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "ah ah ah ah"
+    "ab ab ab ab"
+    "del div mult moins"
+    "sept huit neuf plus"
+    "quatre cinq six plus"
+    "un deux trois egal"
+    "zero zero virgule egal"
+    "AC AC AC AC";
+}
+
+#calc div{
+    display: flex;
+    background-color: rgb(186, 241, 172);
+    border: 2px solid white;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    
+}
+
+#affichagehaut{
+    grid-area: ah;
+    justify-content: right !important;
+    background-color: black !important;
+    color: white;
+}
+
+#affichagebas{
+    grid-area: ab;
+    justify-content: right !important;
+    background-color: black !important;
+    color: white;
+}
+
+#DEL{
+    grid-area: del;
+}
+
+#diviser{
+    grid-area: div
+}
+
+#multiplier{
+    grid-area: mult;
+}
+
+#soustraire{
+    grid-area: moins;
+}
+
+#sept{
+    grid-area: sept;
+}
+
+#huit{
+    grid-area: huit
+}
+
+#neuf{
+    grid-area: neuf;
+}
+
+#additioner{
+    grid-area: plus;
+}
+
+#quatre{
+    grid-area: quatre
+}
+
+#cinq{
+    grid-area: cinq;
+}
+
+#six{
+    grid-area: six;
+}
+
+#un{
+    grid-area: un;
+}
+
+#deux{
+    grid-area: deux;
+}
+
+#trois{
+    grid-area: trois;
+}
+
+#resultat{
+    grid-area: egal;
+}
+
+#zero{
+    grid-area: zero;
+}
+
+#virgule{
+    grid-area: virgule;
+}
+
+#AC{
+    grid-area: AC;
+}
+

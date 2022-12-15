@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Google",
+        "paragraphe" : "   Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sint perspiciatis beatae cumque. Dolorum quod aliquam eos officia corporis maiores deserunt eum reiciendis obcaecati, soluta quia, in officiis atque ab!",
+        "link": "https://www.google.fr"
+    },
+    {
+        "title": "Amazon",
+        "paragraphe" : "   Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sint perspiciatis beatae cumque. Dolorum quod aliquam eos officia corporis maiores deserunt eum reiciendis obcaecati, soluta quia, in officiis atque ab!",
+        "link": "https://www.amazon.fr"
+    },
+    {
+        "title": "Twitter",
+        "paragraphe" : "   Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sint perspiciatis beatae cumque. Dolorum quod aliquam eos officia corporis maiores deserunt eum reiciendis obcaecati, soluta quia, in officiis atque ab!",
+        "link": "https://www.twitter.com"
+    }
+]

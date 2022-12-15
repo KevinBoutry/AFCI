@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les templates et slot</title>
+    <script src="./script.js" defer type="module"></script>
+</head>
+<super-card>
+    <span slot="title">Voici mon titre !</span>
+    <strong slot="paragraphe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure consequatur nam similique eius, incidunt eum est hic in nobis ea velit vitae dolor esse cum quam ducimus! Saepe, sit!</strong>
+    <img src="../../../SF/ressources/char icons/laura.png" alt="image" slot="link">
+</super-card>
+<super-card>
+    <em slot="title">Titre cool !</em>
+    <span slot="paragraphe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quia, autem dolor aliquid recusandae natus est hic ab consequuntur optio architecto vitae dicta pariatur, quas sunt, sequi consequatur! Repudiandae, ut.</span>
+    <strong slot="link">lien en gras !</strong>
+</super-card>
+<body>
+    <template id="card">
+        <div class="card">
+            <h2>titre</h2>
+            <p>paragraphe</p>
+            <a href="">lien</a>
+        </div>
+    </template>
+    <template id="superCard">
+        <style>
+            .card{
+                width: 25%;
+                border: 1px solid black;
+                border-radius: 5px;
+                box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+                display: inline-block;
+                padding: 2rem;
+            }
+            h2{
+                text-align: center;
+            }
+            p{
+                text-align: justify;
+            }
+            a{
+                display: block;
+                text-align: right;
+            }
+        </style>
+        <div class="card">
+            <h2><slot name="title"></slot></h2>
+            <p><slot name="paragraphe"></slot></p>
+            <a href=""><slot name="link"></slot></a>
+        </div>
+    </template>
+</body>
+</html>

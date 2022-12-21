@@ -28,16 +28,19 @@ const intro = document.querySelector(".intro");
 const closintro = document.querySelector(".intro button");
 // const visant le compteur de personnages trouvés
 const compteur = document.querySelector("#compteur")
+// const visant le bouton info du header
+const info = document.querySelector("header a")
 
-// const vérifiant si le son est mute
+// var vérifiant si le son est mute
 var muted = false;
+// var vérifiant si il faut afficher l'intro
+var showintro = true;
 // Son qui se joue lorsqu'un personnage est trouvé.
 const coin = new Audio("./ressources/son/coin.mp3");
 // Son qui se joue lorsqu'on tape le 1er nom.
 const fightsound = new Audio("./ressources/son/fight.mp3");
 // Son qui se joue lorsqu'un achievement est débloqué
 const achivsound = new Audio("./ressources/son/achiv.mp3");
-
 
 //var visant le score enregistré en local storage
 var HSC = localStorage.getItem("characters");
@@ -64,17 +67,19 @@ var bosscount = 0;
 // var stockant le nombre de personnages avec class blond
 var blondcount = 0;
 
-
 // fonction qui sera lancé au chargement de la page
 function loading()
 {
     // récupére le status de la var muted qui est stocké en localStorage
     muted = localStorage.getItem("mute");
     // Si le son est mute, modifie l'affichage du bouton mute en conséquence
-    if (muted == "true")
-    {      
+    if (muted == "true")     
         sfx.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>  Play Sound'
-    }
+    // récupére le status de la var showintro stockée en localstorage.
+    showintro = localStorage.getItem("showintro");
+    // Si l'intro a déjà été vue une fois on ne réaffiche pas la fenêtre d'intro.
+    if (showintro == "false")
+        intro.classList.add("hidden")
 }
 loading() 
 
@@ -196,13 +201,10 @@ function fight()
     }
 }
 
-//fonction pour refresh la page avec le bouton restart
-restart.addEventListener("click", ()=>{
-    window.location.reload();
-});
+// fonction pour refresh la page avec le bouton restart
+restart.addEventListener("click", ()=>window.location.reload());
 
-
-//fonction verifiant si un achievement est atteint et gérant son affichage
+// fonction verifiant si un achievement est atteint et gérant son affichage
 function achievement(e)
 {  
     // const visant toute la partie achievement
@@ -312,11 +314,12 @@ function achievement(e)
 }
 
 // Fonction pour fermer la fenetre d'intro
-
-closintro.addEventListener("click",()=>intro.classList.add("hidden"));
+closintro.addEventListener("click",()=>{
+    intro.classList.add("hidden");
+    localStorage.setItem("showintro", false)
+});
 
 // fonction pour mute/demute le son
-
 const sfx = document.querySelector("header p");
 sfx.addEventListener("click", mute)
 
@@ -336,4 +339,5 @@ function mute()
     localStorage.setItem("mute", `${muted}`)
 }
 
-
+// fonction pour afficher les regles en cliquant sur info
+info.addEventListener("click",()=>intro.classList.toggle("hidden"))

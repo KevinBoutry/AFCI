@@ -1,6 +1,6 @@
 "use strict";
 
-const mot = "POMPIER";
+const mot = "VENTILATEUR";
 var error = 0;
 var hitnumber = 0;
 const button = document.querySelectorAll("button");
@@ -42,11 +42,9 @@ function verifmot()
         {
             div[i].classList.remove("cache");
             hitnumber++
-            console.log(hitnumber);
             hit = true
         }
     }
-    console.log(hit);
     if(hit == false)
     {
         error++;

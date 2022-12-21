@@ -17,6 +17,7 @@ body{
 
 header{
     height: 20vh;
+    width: 100%;
     background-image: url("./ressources/image/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -55,6 +56,19 @@ header p svg{
 header p:hover{
     cursor: pointer;
 }
+
+a{
+    position: absolute;
+    right: 20px;
+    top: 15%;
+    font-size: 1.3rem;
+    color: white;
+}
+
+header a:hover{
+    cursor: pointer;
+}
+
 
 /* ------------------------------------------------------ BASE ----------------------------------------------------------- */
 
@@ -243,6 +257,7 @@ h2{
 #score{
     grid-area : score;
     font-size: 1.2rem;
+    color : #D28D67ff
 }
 
 #restart{
@@ -295,6 +310,9 @@ h2{
     cursor: pointer;
 }
 
+#restart button:hover{
+    cursor: pointer;
+}
 @keyframes fightanim
 {
     from{

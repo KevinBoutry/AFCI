@@ -12,9 +12,16 @@ body{
 #erreurs{
     background-color: aquamarine;
     width: 100vw;
-    height: 70vh;
+    height: 65vh;
     text-align: center;
     font-size: 5rem;
+}
+
+#indice{
+    width: 100vw;
+    height : 5vh;
+    font-size: 3vw;
+    text-align: center;
 }
 
 #mot{
@@ -36,18 +43,25 @@ body{
 }
 
 #alphabet{
-   display: flex;
-   flex-direction: column;
+    height : 19vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: grey;
 }
 
-#ligne1, #ligne2, #ligne3 {
+#ligne1, #ligne2, #ligne3, #ligne4{
     display: flex;
     justify-content: space-around;
 }
 
-#alphabet button{
+button{
     width: 6vw;
     height: 4vh;
+}
+
+#restart{
+    width: 20vw;
 }
 
 .lettre{
@@ -74,8 +88,7 @@ body{
     opacity: 0;
 }
 
-#defaite, #victoire{
-    
+.resultat{    
     position: absolute;
     z-index: 2;
     width: 50vw;
@@ -84,15 +97,8 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 5vw;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
-}
-
-#defaite{
-    background-color: red;
-}
-
-#victoire{
-    background-color: green;
+    text-align: center;
 }

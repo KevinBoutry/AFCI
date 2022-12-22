@@ -1,37 +1,38 @@
 "use strict";
 
-const indice = document.querySelector("#indice")
-const wincard = document.querySelector("#win")
-const restart = document.querySelector("#restart")
-const proposer = document.querySelector("#proposer")
-const carte = document.querySelector("#carte")
+const indice = document.querySelector("#indice") as HTMLElement;
+const wincard = document.querySelector("#win") as HTMLElement;
+const restart = document.querySelector("#restart") as HTMLElement;
+const proposer = document.querySelector("#proposer") as HTMLElement;
+const carte = document.querySelector("#carte") as HTMLElement;
 
-var win = Math.round(Math.random()*100)
-var tentative = 0
+var win : number = Math.round(Math.random()*100)
+var tentative : number = 0
 
 wincard.innerHTML = `${win}`
 
-const proposition = document.querySelector("#proposition")
+const proposition = document.querySelector("#proposition") as HTMLElement;
 
-function jeu(e)
+function jeu(e: Event)
 {
-    if(e.target.value == win)
+    if(e.target instanceof HTMLInputElement)
+    if(parseInt(e.target.value) == win)
     {
         indice.innerHTML = "Vous avez gagné"
-        tentative = tentative + 1
+        tentative++
         wincard.classList.add("animation")
         restart.classList.add("animation")
         carte.classList.add("animcarte")
     }
-    else if(e.target.value < win)
+    else if(parseInt(e.target.value) < win)
     {
         indice.innerHTML = `C'est plus grand que ${e.target.value} !`
-        tentative = tentative + 1
+        tentative++
     }
-    else if(e.target.value > win)
+    else if(parseInt(e.target.value) > win)
     {
         indice.innerHTML = `C'est plus petit que ${e.target.value} !`
-        tentative = tentative + 1
+        tentative++
     }
         
     if(tentative > 7)
@@ -41,6 +42,7 @@ function jeu(e)
         restart.classList.add("animation")
     }
     
+    if(e.target instanceof HTMLInputElement)
     e.target.value = "";
 }
 
@@ -53,11 +55,10 @@ function reset()
     indice.innerHTML = "Veuillez choisir un nombre entre 1 et 100, vous avez 7 essais";
     tentative = 0;
     wincard.innerHTML = `${win}`;
-    document.querySelector("#proposition").focus
+    document.querySelector<HTMLElement>("#proposition")!.focus;
 }
 
 proposition.addEventListener("change", jeu);
-// proposer.addEventListener("click")
 restart.addEventListener("click",reset);
-console.log(win);
+
 

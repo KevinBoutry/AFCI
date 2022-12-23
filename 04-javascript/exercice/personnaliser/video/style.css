@@ -1,0 +1,88 @@
+*, ::before, ::after{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.video-container{
+    position: relative;
+    width: fit-content;
+    height: 60vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+video{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+}
+
+#playbutton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 10vw;
+    height: 10vh;
+    fill: rgba(0, 0, 0, 0.815);
+}
+
+#pausebutton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 10vw;
+    height: 10vh;
+    display: none;
+    fill: rgba(0, 0, 0, 0.815);
+    opacity: 0;
+}
+
+#pausebutton:hover{
+    opacity: 50;
+}
+
+#menu{
+    background-color: black;
+    position: relative;
+    bottom: 0;
+    z-index: 2;
+    height : 5vh;
+    opacity: 100;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#play #pause #full{ 
+    height: fit-content;
+}
+
+#play svg, #pause svg, #full svg{
+    fill: white;
+    padding-left: 0.5rem;
+    width: 3vw;
+}
+
+progress{
+    width: 100%;
+}
+
+#volume{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10vw;
+    height: 10vh;
+}

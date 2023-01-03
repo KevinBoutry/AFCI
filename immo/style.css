@@ -247,9 +247,44 @@ nav ul li:hover{
 #search div{
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#search div div{
-    display: flex;
-    flex-direction: column;
+#search button{
+    position: relative;
+    left: 50%; 
+    transform: translate(-50%, 0);
+    background-color: rgb(137, 202, 39);
+    color: antiquewhite;
+    padding: 10px;
+}
+
+/* -------------------------------------- BIENS --------------------------------- */
+
+#biens{
+    margin-top: 25px;
+}
+
+#biens h1{
+    text-align: center;
+    color: rgb(56, 9, 56);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#bienscontent{
+
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    
+}
+
+#bienscontent div{
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
 }

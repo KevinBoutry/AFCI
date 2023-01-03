@@ -92,21 +92,26 @@
     <div id="search">
         <h1>QUE RECHERCHEZ-VOUS ?</h1>
         <div>
-            <div>
-                <p>TYPE DE BIEN</p>
-                <select name="" id=""></select>
-            </div>
-            <div>
-                <p>LOCALISATION</p>
-                <input type="text">
-            </div>
-            <div>
-                <p>BUDGET</p>
-                <p>DE</p> <input type="number"> <p>À</p> <input type="number">
-            </div>
+            <p>TYPE DE BIEN</p>
+            <select name="" id="type">
+                <option value="tous">tous types</option>
+                <option value="maison">maison</option>
+                <option value="appartement">appartement</option>
+                <option value="terrain">terrain</option>
+            </select>
+            <p>LOCALISATION</p>
+            <input type="text" id="localisation">
+            <p>BUDGET</p>
+            <p>DE</p> <input type="number" id="minbudget"> <p>À</p> <input type="number" id="maxbudget">  
+        </div>
+        <button>LANCER LA RECHERCHE</button>
+    </div>
+    <div id="biens">
+        <h1>DERNIERS BIENS MIS EN LIGNE</h1>
+        <div id="bienscontent">
+            
         </div>
     </div>
-    <div id="biens"></div>
     <div id="contact"></div>
     <footer></footer>    
 </body>

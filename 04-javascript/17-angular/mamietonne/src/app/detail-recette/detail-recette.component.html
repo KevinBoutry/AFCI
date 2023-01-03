@@ -1,0 +1,11 @@
+<p *ngIf="!recette">Aucune recette selectionnée</p>
+<div *ngIf="recette" class="recette">
+    <p id="name">{{recette.name}}</p>
+    <p id="type">{{recette.type}}</p>
+    <img src="../../assets/img/{{recette.image}}" alt="">
+    <p id="description">{{recette.description}}</p>
+    <div id="ingredient">
+        <b>Ingrédients : </b> 
+        <li *ngFor="let ing of recette.ingredients">{{ing}}</li>
+    </div>
+</div>

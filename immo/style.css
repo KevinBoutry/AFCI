@@ -264,6 +264,9 @@ nav ul li:hover{
 
 #biens{
     margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgb(201, 192, 180);
+    height: 700px;
 }
 
 #biens h1{
@@ -287,4 +290,13 @@ nav ul li:hover{
     width: 300px;
     background-size: cover;
     background-position: center;
+}
+
+/* -------------------------------- CONTACT ------------------------------------- */
+
+#contact h1{
+    text-align: center;
+    color: rgb(56, 9, 56);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }

@@ -1,0 +1,28 @@
+<form action="" *ngIf="recette">
+    <label for="name">Nom : </label>
+        <input type="text" id="name" name="name" required pattern="^[a-zA-Z\sàéèç]{1,50}$" value="{{recette.name}}">
+        <div class="erreur"></div>
+    <label for="duree">Durée (en minutes) : </label>
+        <input type="number" id="duree" name="duree" required pattern="^[1-9][0-9]*$" value="{{recette.duration}}">
+        <div class="erreur"></div>
+    <label for="description">Description : </label>
+        <textarea type="text" id="description" name="description" required pattern=".{5,}(\n|.)*" value="{{recette.description}}"></textarea>
+        <div class="erreur"></div>
+    <legend>
+        <label for="">Type : </label>
+        <input type="radio" id="type" name="type">
+        <label for="type"> plat </label>
+        <input type="radio" id="dessert" name="dessert">
+        <label for="dessert"> dessert </label>
+    </legend>
+    <label for="ingredients">Ingrédients : </label>
+        <textarea type="text" id="ingredients" name="ingredients" required pattern=".{3,}(\n|.)*"value="{{recette.ingredients}}"></textarea>
+        <div class="erreur"></div>
+    <label for="steps">Étapes : </label>
+        <textarea type="text" id="steps" name="steps" required pattern=".{5,}(\n|.)*" value="{{recette.steps}}"></textarea>
+        <div class="erreur"></div>
+    <div id="valider">
+        <button>VALIDER</button>
+    </div>
+</form>
+

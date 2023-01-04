@@ -1,0 +1,41 @@
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    min-height: 50vh;
+    background-color: rgb(216, 202, 120)
+}
+
+#description, #ingredients, #steps{
+    height: 10vh;
+}
+
+.erreur{
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+legend{
+    margin-bottom: 20px;
+}
+
+button{
+    width: 20vw;
+    height: 50px;
+    font-size: 1.3rem;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#valider{
+    text-align: center;
+}
+
+textarea{
+    resize: vertical;
+}

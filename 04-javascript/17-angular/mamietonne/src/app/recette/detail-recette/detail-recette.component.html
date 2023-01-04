@@ -1,3 +1,6 @@
+<button (click)="goToRecetteList()">Retour</button>
+<button (click)="goToEditRecette()">Editer</button>
+
 <p *ngIf="!recette">Aucune recette selectionnée</p>
 <div *ngIf="recette" class="recette">
     <p id="name">{{recette.name}}</p>

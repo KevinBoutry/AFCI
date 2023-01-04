@@ -4,6 +4,13 @@ padding: 0;
 box-sizing: border-box;
 }
 
+button{
+    float: right;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 2rem;    
+}
+
 .recette{
     min-height: 100vh;
     width: 100vw;

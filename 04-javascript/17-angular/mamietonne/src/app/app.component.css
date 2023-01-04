@@ -1,62 +1,11 @@
-.machin
-{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-}
-
-.carte
-{
-    height: 50%;
-    width: 30%;
-    background-color: rgb(245, 196, 137);
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.carte:hover{
-    scale: 105%;
-}
-
-.carte img
-{
-    height: 50%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-.carte h1
-{
-    height: 10%;
+nav{
+    background-color: steelblue;
+    padding: 1rem;
     text-align: center;
 }
 
-.carte h2{
-    height: 10%;
-    text-align: center;
-    color: rgba(80, 75, 75, 0.541);
-    padding: 2px;
-}
-
-.description
-{
-    height: 15%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.duree
-{
-    height: 5%;
-}
-
-.date
-{
-    height: 5%;
-    position: relative;
-    bottom: 0px;
+.logo{
+    font-size: 2.5rem;
+    color: black;
+    text-transform: capitalize;
 }

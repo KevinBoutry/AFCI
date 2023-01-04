@@ -24,12 +24,12 @@
     On a ici un évènement à l'input ne lançant aucune fonction puis la création d'une variable(propriété) qui va contenir notre input.
     Et enfin un p qui affiche le contenu de notre input.
 -->
-<input type="number" #inputRecette (keyup.enter)="selectRecette(inputRecette.value)">
+<!-- <input type="number" #inputRecette (keyup.enter)="selectRecette(inputRecette.value)">
 <p *ngIf="recetteSelected">Vous avez selectionné : {{recetteSelected.name}}</p>
-<p *ngIf="!recetteSelected">Aucune recette selectionnée</p>
+<p *ngIf="!recetteSelected">Aucune recette selectionnée</p> -->
 
 <div class="machin">
-    <div class="carte" *ngFor="let rec of recetteList" appBorderCard="red">
+    <div class="carte" *ngFor="let rec of recetteList" appBorderCard="red" (click)="goToRecette(rec)">
         <h1>{{rec.name}}</h1>
         <h2 style="color: {{rec.type|typeColor}}">{{rec.type}}</h2>
         <img src="../assets/img/{{rec.image}}" alt="">

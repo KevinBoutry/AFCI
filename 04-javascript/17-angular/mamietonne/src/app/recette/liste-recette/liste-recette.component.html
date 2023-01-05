@@ -35,7 +35,7 @@
         <img src="../assets/img/{{rec.image}}" alt="">
         <p class="description">{{rec.description}}</p>
         <p class="duree">Temps de préparation : {{rec.duration}} min</p>
-        <p class="date">Créé le : {{rec.createdAt.toLocaleDateString()}}</p>
+        <p class="date">Créé le : {{rec.createdAt | date}}</p>
     </div>
 </div>
 

@@ -9,6 +9,8 @@ const inpminbudget = document.querySelector("#minbudget");
 const inpmaxbudget = document.querySelector("#maxbudget");
 const searchbutton = document.querySelector("#search button")
 
+var f = ""
+
 inptype.addEventListener("input", typedebien);
 searchbutton.addEventListener("click", ()=>typedebien({target:inptype}))
 
@@ -133,10 +135,30 @@ function showTerrain()
             )
             {
                 let e = document.createElement("div");
-                divbiens.append(e)
-                e.classList.add("terrain")
-                e.textContent = terrain.titre
-                e.style.backgroundImage = `url("./assets/images/immobilier/${terrain.photos}")`
+                divbiens.append(e);
+                e.style.backgroundImage = `url("./assets/images/immobilier/${terrain.photos}")`;
+                e.addEventListener("mouseover", ()=>
+                {
+                    f = document.createElement("div");
+                    f.classList.add("bienhover")
+                    f.style.zIndex
+                    e.append(f);
+                    let h1 = document.createElement("h1");
+                    let h2 = document.createElement("h2");
+                    let h3 = document.createElement("h3");
+                    let button = document.createElement("button");
+                    f.append(h1,h2,h3,button);
+                    h1.textContent = terrain.titre;
+                    h2.textContent = terrain.ville;
+                    h3.textContent = terrain.prix;
+                    button.textContent = "EN SAVOIR PLUS";
+                })
+                e.addEventListener("mouseout", ()=>
+                {
+                    console.log(f);
+                    f.remove()
+                })
+
             }
         });
     }

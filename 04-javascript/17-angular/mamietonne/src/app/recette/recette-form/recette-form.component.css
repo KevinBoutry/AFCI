@@ -39,3 +39,16 @@ button:hover{
 textarea{
     resize: vertical;
 }
+
+div{
+    color: red;
+}
+
+.ng-valid[required]{
+    border: 2px solid green
+}
+
+.ng-invalid:not(form)
+{
+    border: 2px solid red
+}

@@ -1,28 +1,40 @@
-<form action="" *ngIf="recette">
+<form 
+    *ngIf="recette" (ngSubmit)="onSubmit()" #recetteForm="ngForm">
+
     <label for="name">Nom : </label>
-        <input type="text" id="name" name="name" required pattern="^[a-zA-Z\sàéèç]{1,50}$" value="{{recette.name}}">
-        <div class="erreur"></div>
+        <input type="text" id="name" name="name" required pattern="^[a-zA-Z\sàéèç]{1,50}$" [(ngModel)]="recette.name" #name="ngModel">
+        <div class="erreur" [hidden]="name.valid || name.pristine">Nom de la recette requis (entre 1 et 50 caractères)</div>
+
     <label for="duree">Durée (en minutes) : </label>
-        <input type="number" id="duree" name="duree" required pattern="^[1-9][0-9]*$" value="{{recette.duration}}">
-        <div class="erreur"></div>
+        <input type="number" id="duree" name="duree" required pattern="^[1-9][0-9]*$" [(ngModel)]="recette.duration" #duration="ngModel">
+        <div class="erreur" [hidden]="duration.valid || duration.pristine">La durée de la recette est requise</div>
+
     <label for="description">Description : </label>
-        <textarea type="text" id="description" name="description" required pattern=".{5,}(\n|.)*" value="{{recette.description}}"></textarea>
-        <div class="erreur"></div>
-    <legend>
-        <label for="">Type : </label>
-        <input type="radio" id="type" name="type">
-        <label for="type"> plat </label>
-        <input type="radio" id="dessert" name="dessert">
-        <label for="dessert"> dessert </label>
-    </legend>
+        <textarea type="text" id="description" name="description" required pattern=".{5,}(\n|.)*" [(ngModel)]="recette.description" #description="ngModel"></textarea>
+        <div class="erreur" [hidden]="description.valid || description.pristine">La description de la recette est requise</div>
+
+    <label for="types">Type : </label>
+    <label *ngFor="let t of types" [attr.for]="t">
+        <input type="radio" name="type" id="type" required [value]="t" [checked]="hasType(t)" (change)="selectType($event, t)">
+        <span style="background-color: {{t|typeColor}}">{{t}}</span>
+    </label>
+
     <label for="ingredients">Ingrédients : </label>
-        <textarea type="text" id="ingredients" name="ingredients" required pattern=".{3,}(\n|.)*"value="{{recette.ingredients}}"></textarea>
-        <div class="erreur"></div>
+        <textarea type="text" id="ingredients" name="ingredients" required pattern=".{3,}(\n|.)*" [(ngModel)]="ingredientsList" #ingredient="ngModel"></textarea>
+        <div class="erreur" [hidden]="ingredient.valid || ingredient.pristine">Liste d'ingrédients requise</div>
+
     <label for="steps">Étapes : </label>
-        <textarea type="text" id="steps" name="steps" required pattern=".{5,}(\n|.)*" value="{{recette.steps}}"></textarea>
-        <div class="erreur"></div>
+        <textarea type="text" id="steps" name="steps" required pattern=".{5,}(\n|.)*" [(ngModel)]="stepsList" #steps="ngModel"></textarea>
+        <div class="erreur" [hidden]="steps.valid || steps.pristine">Étapes requises</div>
+
     <div id="valider">
-        <button>VALIDER</button>
+        <button type="submit" [disabled]="!recetteForm.form.valid">VALIDER</button>
+    </div>
+    <!-- Recette Photo -->
+    <div *ngIf="isCreateForm">
+        <label for="photo">Photo :</label>
+        <input type="text" name="photo" id="photo" required pattern=".+\.(jpg|jpeg|png)$" [(ngModel)]="recette.image" #photo="ngModel">
+        <div class="erreur" [hidden]="photo.valid || photo.pristine"> La photo de la requête est requise</div>
     </div>
 </form>
 

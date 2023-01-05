@@ -8,10 +8,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { RecetteService } from './recette.service';
 import { EditRecetteComponent } from './edit-recette/edit-recette.component';
 import { RecetteFormComponent } from './recette-form/recette-form.component';
+import { FormsModule } from '@angular/forms';
+import { CreateRecetteComponent } from './create-recette/create-recette.component';
 
 const recetteRoutes: Routes = [
-  {path:"recettes", component: ListeRecetteComponent},
-  {path:"recette/:id", component: DetailRecetteComponent},
+  {path: "recettes", component: ListeRecetteComponent},
+  {path: "recette/create", component: CreateRecetteComponent},
+  {path: "recette/:id", component: DetailRecetteComponent},
   {path: "edit/recette/:id", component: EditRecetteComponent}
 ];
 
@@ -19,13 +22,15 @@ const recetteRoutes: Routes = [
   declarations: [
     ListeRecetteComponent,
     DetailRecetteComponent,
-    BorderCardDirective,
+    BorderCardDirective,    
     TypeColorPipe,
     EditRecetteComponent,
-    RecetteFormComponent
+    RecetteFormComponent,
+    CreateRecetteComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild(recetteRoutes)
   ],
   providers:[RecetteService]

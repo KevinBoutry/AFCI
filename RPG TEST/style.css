@@ -1,0 +1,25 @@
+*, ::before, ::after{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+input{
+    width : 100px;
+    margin-bottom: 10px;
+}
+
+#pts{
+    background-color: brown;
+    height: 200px;
+    width: 200px;
+    color: blue;
+    font-size: 5rem;
+    text-align: center; 
+}

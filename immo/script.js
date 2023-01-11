@@ -158,7 +158,6 @@ function showTerrain()
                     console.log(f);
                     f.remove()
                 })
-
             }
         });
     }

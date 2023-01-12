@@ -16,10 +16,12 @@ input{
 }
 
 #pts{
+    
     background-color: brown;
     height: 200px;
     width: 200px;
     color: blue;
     font-size: 5rem;
-    text-align: center; 
+    text-align: center;
+    position: absolute
 }

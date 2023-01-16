@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>The Checklist</h1>       
+        <ajout @newnote="ajouter"></ajout>
+        <note v-for="todo in todos" v-bind:content="todo" @click="inverser" @delete="supprimer"></note>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data(){
+                return{
+                    todos:["Faire la lessive", "Manger un Kebab", "Jouer au foot"]
+                }
+            },
+            methods:{
+                inverser(){
+                    this.todos.reverse();
+                },
+                ajouter(message){
+                    this.todos.push(message)
+                },
+                supprimer(message){
+                    this.message.splice()
+                }
+            }
+        })
+        
+        vm.component('note',{
+            props: ['content'],
+            emits: ['delete'],
+            data(){
+                return{
+                    tache: 'Tache à supprimer'
+                }
+            },
+            methods:{
+                suppr(){
+                    this.$emit('delete', this.tache)
+                }
+            },
+            template: `<p> {{ content }} </p> <a href="#" @click="suppr">Supprimer</a>`
+
+        })
+
+        vm.component('ajout',{
+            props:[],
+            emits: ['newnote'],
+            data(){
+                return{
+                    interne: 'Nouveau message'
+                }
+            },
+            methods:{
+                enregistrer(){
+                    this.$emit('newnote', this.interne);
+                    this.interne='';
+                }
+            },
+            template: 
+            `
+                <input type="text" v-model="interne" />
+                <a href="#" @click="enregistrer" v-if="interne != ''">Ajouter</a>
+                {{ interne }}
+            `
+        })
+
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>

@@ -9,19 +9,38 @@
     <script src="./dist/script.js" defer></script>
 </head>
 <body>
+    <select name="level" id="level">
+        <option value="level1">Level 1</option>
+        <option value="level2">Level 2</option>
+        <option value="level3">Level 3</option>
+        <option value="level4">Level 4</option>
+        <option value="level5">Level 5</option>
+    </select>
     <div>
-        <label for="stat1">STR</label>
-        <input type="number" id="STR" value=5 min=1 max=20>
-        <label for="stat2">DEX</label>
-        <input type="number" id="DEX" value=5 min=1 max=20>
-        <label for="stat3">CON</label>
-        <input type="number" id="CON" value=5 min=1 max=20>
-        <label for="stat4">INT</label>
-        <input type="number" id="INT" value=5 min=1 max=20>
-        <label for="stat5">SAG</label>
-        <input type="number" id="SAG" value=5 min=1 max=20>
-        <label for="stat6">CHR</label>
-        <input type="number" id="CHR" value=5 min=1 max=20>
+        <div class="stats">
+            <label for="stat1">STR</label>
+            <input type="number" id="STR" value=10 min=1 max=20>
+        </div>
+        <div class="stats">
+            <label for="stat2">DEX</label>
+            <input type="number" id="DEX" value=10 min=1 max=20>
+        </div>
+        <div class="stats">
+            <label for="stat3">CON</label>
+            <input type="number" id="CON" value=10 min=1 max=20>
+        </div>
+        <div class="stats">
+            <label for="stat4">INT</label>
+            <input type="number" id="INT" value=10 min=1 max=20>
+        </div>
+        <div class="stats">
+            <label for="stat5">SAG</label>
+            <input type="number" id="SAG" value=10 min=1 max=20>
+        </div>
+        <div class="stats">
+            <label for="stat6">CHR</label>
+            <input type="number" id="CHR" value=10 min=1 max=20>
+        </div>
     </div>
     <div id="pts"></div>
 </body>

@@ -8,6 +8,7 @@ div{
     display: flex;
     flex-direction: column;
     margin: 10px;
+    width: 20vw;
 }
 
 input{
@@ -16,11 +17,22 @@ input{
 }
 
 #pts{
-    
     background-color: brown;
     height: 200px;
     width: 200px;
     color: blue;
     font-size: 5rem;
     text-align: center;
+    position: absolute;
+    left: 21vw;
+    top: 10px;
+}
+
+.stats{
+    display: flex;
+    flex-direction: row;
+}
+
+.stats input{
+    margin-left: 5px;
 }

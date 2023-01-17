@@ -1,6 +1,36 @@
 "use strict";
 
-var maxpts : number = 60;
+const lvlinp = <HTMLSelectElement> document.querySelector("#level")
+lvlinp.addEventListener("change", lvlselect)
+
+var basepts : number = 0;
+var maxpts : number = basepts + 60;
+
+function lvlselect()
+{
+    switch (lvlinp.value)
+    {
+        case "level1":
+            basepts = 70;
+            break;
+        case "level2":
+            basepts = 75;
+            break;
+        case "level3":
+            basepts = 80;
+            break;
+        case "level4":
+            basepts  = 85;
+            break;
+        case "level5":
+            basepts = 90;
+            break;
+        default:
+            break;
+    }
+    ptsrestant.textContent = maxpts.toString();
+    console.log(maxpts, basepts);    
+}
 
 const ptsrestant = <HTMLElement> document.querySelector("#pts");
 ptsrestant.textContent = maxpts.toString();
@@ -29,7 +59,7 @@ function calcstats()
     var int : number = parseInt(intinp.value);
     var sag : number = parseInt(saginp.value);
     var chr : number = parseInt(chrinp.value);    
-    maxpts = 60 - (str + dex + con + int + sag + chr);
+    maxpts = basepts - (str + dex + con + int + sag + chr);
     ptsrestant.textContent = maxpts.toString();
     if(maxpts <= 0)
     {
@@ -50,3 +80,4 @@ function calcstats()
         chrinp.max = "20";
     }
 }
+

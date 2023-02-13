@@ -1,27 +1,30 @@
-<?php
+<?php 
 $title = "Go TO";
 require "../ressources/template/_header.php";
 
-/*
-    Go TO permet de sauter une partie du code pour aller à la suivante.
+/* 
+    Go To permet de sauter une partie du code pour aller à la suivante.
     On peut s'en servir dans une condition pour ne pas executer certains codes.
-    C'est une vieille fonctionnalité que les développeurs n'apprécient pas trop car elle change l'ordre de lecture du code.
+    C'est une vieille fonctionnalité que les developpeurs n'apprécie pas trop car elle change l'ordre de lecture du code. 
 
-    ! ATTENTIION :
-        On ne peut pas entrer dans une fonction, une boucle ou une condition avec go to.
-        On ne peut pas sortir d'une fonction non plus.
+    ! ATTENTION :
+        On ne peux pas entrer dans une fonction, une boucle ou une condition avec go to.
+        On ne peux pas sortir d'une fonction non plus.
 
-    Go To fonctionne en 2 parties, la 1ere est une balise qui servira d'encre à notre goto.
-        Elle est représentée par un mot suivi de ":" puis le mot goto suivi du nom de l'ancre.
+    Goto fonctionne en deux parties, la première est une balise qui servira d'ancre à notre goto.
+        Elle est représenté par un mot suivi de ":"
+    Puis le mot clef "goto" suivi du nom de l'ancre.
 */
-for($i=0; $i <100000; $i++)
-{
-    echo "Ceci est le message $i <br>";
-    if ($i === 5) goto fin;
+for ($i=0; $i < 100000; $i++) 
+{ 
+    echo "ceci est le message $i <br>";
+    if($i === 5) goto fin;
 }
-echo "Les chaussettes bla bal blab olabla ...<br>";
+
+echo "Les chaussettes de l'archi duchesses...<br>";
 fin:
-echo "c'est la fin !"
+
+echo "ceci est la fin !";
 ?>
 
 <?php require "../ressources/template/_footer.php" ?>

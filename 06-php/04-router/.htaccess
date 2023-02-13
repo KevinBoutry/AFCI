@@ -1,0 +1,16 @@
+# Le fichier .htaccess est lu par les serveurs apache à chaques requête au serveur passant par son dossier.
+
+# Activer l'outil de réécriture d'url:
+
+RewriteEngine ON
+
+#On ajoute une condition à notre réécriture :
+RewriteCond %{REQUEST_URI} !(\.png|.jpg|\.gif|\.css|\.js|\.ico)$
+
+#Réécriture de l'url :
+RewriteRule (.*) index.php [QSA,L]
+
+# (.*) une regex indiquant la totalité de l'url doit être réécrite.
+# [QSA,L] flags indiquant certaines règles à respecter :
+# QSA permet de garder les paramètres GET actif.
+# L indique que c'est la dernière règle qui doit être appliqué.

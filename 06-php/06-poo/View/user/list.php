@@ -1,13 +1,6 @@
 <?php 
-$title = "MVC - Liste Utilisateur";
-require __DIR__."/../../../ressources/template/_header.php";
 // flash message :
-if(isset($flash)):
-?>
-<div class="flash">
-    <?php echo $flash ?>
-</div>
-<?php endif; ?>
+$this->getFlash(); ?>
 <!-- Liste des utilisateurs : -->
 <h3>Liste des utilisateurs</h3>
 <?php if($users): ?>
@@ -40,5 +33,4 @@ if(isset($flash)):
     <p>Aucun utilisateur trouvé</p>
 <?php 
 endif; 
-require __DIR__."/../../../ressources/template/_footer.php";
 ?>

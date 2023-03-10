@@ -1,0 +1,44 @@
+<?php 
+const ROUTES = [
+    "06-poo"=>[
+        "controller"=>"UserController",
+        "fonction"=>"read"
+    ],
+    "06-poo/inscription"=>[
+        "controller"=>"UserController",
+        "fonction"=>"create"
+    ],
+    "06-poo/user/update"=>[
+        "controller"=>"UserController",
+        "fonction"=>"update"
+    ],
+    "06-poo/user/delete"=>[
+        "controller"=>"UserController",
+        "fonction"=>"delete"
+    ],
+    "06-poo/login"=>[
+        "controller"=>"AuthController",
+        "fonction"=>"login"
+    ],
+    "06-poo/logout"=>[
+        "controller"=>"AuthController",
+        "fonction"=>"logout"
+    ],
+    "06-poo/message/read"=>[
+        "controller"=>"MessageController",
+        "fonction"=>"read"
+    ],
+    "06-poo/message/create"=>[
+        "controller"=>"MessageController",
+        "fonction"=>"create"
+    ],
+    "06-poo/message/update"=>[
+        "controller"=>"MessageController",
+        "fonction"=>"update"
+    ],
+    "06-poo/message/delete"=>[
+        "controller"=>"MessageController",
+        "fonction"=>"delete"
+    ],
+];
+?>

@@ -1,62 +1,98 @@
-<?php
-
+<?php 
 require_once __DIR__."/../../ressources/service/_pdo.php";
-
-
 /**
- * Récupérer tous les messages de l'user connecté en session
+ * Récupère tous les messages d'un utilisateur.
  *
- * @return void
+ * @param integer $idUser
+ * @return array|false
  */
-function getMessageByUserID(): array
+function getMessageByUser(int $idUser): array|false
 {
     $pdo = connexionPDO();
-    if(empty($_GET["cat"]))
-    {
-        $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM message m LEFT JOIN categorie c ON m.idCat = c.idCat WHERE m.idUser = ? ORDER BY m.createdAt DESC");
-        $sql->execute([(int)$_GET["id"]]);
-    }
-    else
-    {
-        $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM message m LEFT JOIN categorie c ON m.idCat = c.idCat WHERE m.idUser = ? AND m.idCat = ? ORDER BY m.createdAt DESC");
-        $sql->execute([
-            (int)$_GET["id"],
-            (int)$_GET["cat"]
-    ]);
-    }
+    $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM messages m LEFT JOIN categories c ON c.idCat = m.idCat WHERE idUser = ? ORDER BY m.createdAt DESC");
+    $sql->execute([$idUser]);
     return $sql->fetchAll();
-};
-
+}
 /**
- * Création d'un message
+ * Retourne un message via son ID
  *
- * @param string $message
- * @return void
+ * @param integer $id
+ * @return array|false
  */
-function addMessage(string $message): void
+function getMessageById(int $id): array|false
 {
     $pdo = connexionPDO();
-    if(empty($_POST["categorie"]))
-    {
-        $sql = $pdo->prepare("INSERT INTO message(message, idUser) VALUES (:m, :id)");
-    }
+    $sql = $pdo->prepare("SELECT * FROM messages WHERE idMessage = ?");
+    $sql->execute([$id]);
+    return $sql->fetch();
+}
+/**
+ * Retourne la liste des messages d'un utilisateur pour une catégorie donnée.
+ *
+ * @param integer $idUser
+ * @param integer $idCat
+ * @return array|false
+ */
+function getMessageByUserAndCategory(int $idUser, int $idCat):array|false
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM messages m LEFT JOIN categories c ON c.idCat = m.idCat WHERE idUser = ? AND m.idCat = ? ORDER BY m.createdAt DESC");
+    $sql->execute([$idUser, $idCat]);
+    return $sql->fetchAll();
+}
+/**
+ * Créer un nouveau message
+ *
+ * @param array $values
+ * @return void
+ */
+function addMessage(array $values): void
+{
+    $pdo = connexionPDO();
+    if(count($values) === 2)
+        $sql = $pdo->prepare("INSERT INTO messages (message, idUser) VALUES (:m, :id)");
     else
-    {
-        $sql = $pdo->prepare("SELECT * FROM categorie WHERE idCat = ?");
-        $sql->execute([(int)$_POST["categorie"]]);
-        $cat = $sql->fetch();
-        if($cat)
-        {
-            $sql = $pdo->prepare("INSERT INTO message(message, idUser, idCat) VALUES (:m, :id, :cat)");
-            $sql->bindValue("cat", $cat["idCat"]);
-        }
-        else
-        {
-            $_SESSION["flash"] = "Cette catégorie n'exite pas.";
-        }
-    }
-    $sql->bindValue("m", $message);
-    $sql->bindValue("id", (int)$_SESSION["idUser"], PDO::PARAM_INT);
-    $sql->execute();
+        $sql = $pdo->prepare("INSERT INTO messages (message, idUser, idCat) VALUES (:m, :id, :cat)");
+    
+    $sql->execute($values);
+}
+/**
+ * Supprime un message via son ID
+ *
+ * @param integer $id
+ * @return void
+ */
+function deleteMessageById(int $id): void
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("DELETE FROM messages WHERE idMessage = ?");
+    $sql->execute([$id]);
+}
+/**
+ * Met à jour un message via son ID.
+ *
+ * @param integer $idMessage
+ * @param string $content
+ * @param integer|Null $idCat
+ * @return void
+ */
+function updateMessageById(int $idMessage, string $content, int $idCat = Null): void
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("UPDATE messages SET message = ?, idCat = ?, editedAt = current_timestamp() WHERE idMessage = ?");
+    $sql->execute([$content, $idCat, $idMessage]);
+}
+/**
+ * Compte le nombre de message d'un utilisateur.
+ *
+ * @param integer $idUser
+ * @return array
+ */
+function countMessageByUser(int $idUser): array
+{
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT COUNT(*) as total FROM messages WHERE idUser = ?");
+    $sql->execute([$idUser]);
+    return $sql->fetch();
 }
 ?>

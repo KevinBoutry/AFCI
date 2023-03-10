@@ -21,18 +21,30 @@ const ROUTES = [
         "controller"=>"userController.php",
         "fonction"=>"deleteUser"
     ],
-    "05-mvc/auth/connect"=>[
+    // Exercices :
+    "05-mvc/connexion"=>[
         "controller"=>"authController.php",
-        "fonction"=>"connectUser"
+        "fonction"=>"login"
     ],
-    "05-mvc/auth/disconnect"=>[
+    "05-mvc/deconnexion"=>[
         "controller"=>"authController.php",
-        "fonction"=>"disconnectUser"
+        "fonction"=>"logout"
     ],
-    "05-mvc/messages"=>[
+    "05-mvc/message/list"=>[
         "controller"=>"messageController.php",
         "fonction"=>"readMessage"
     ],
-
+    "05-mvc/message/create"=>[
+        "controller"=>"messageController.php",
+        "fonction"=>"createMessage"
+    ],
+    "05-mvc/message/update"=>[
+        "controller"=>"messageController.php",
+        "fonction"=>"updateMessage"
+    ],
+    "05-mvc/message/delete"=>[
+        "controller"=>"messageController.php",
+        "fonction"=>"deleteMessage"
+    ],
 ];
 ?>
